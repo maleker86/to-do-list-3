@@ -1,5 +1,8 @@
 
 
-export default function printHello() {
-    console.log("Hello! I am an updated test!")
+export default function printHello(text) {
+    let message = text;
+    
+    console.log(message);
+    // console.log("Hello! I am an updated test!")
 };
