@@ -1,3 +1,4 @@
 import _ from 'lodash';
+import printHello from './printer.js';
 
-console.log("Hello! I am a test!")
+printHello();
