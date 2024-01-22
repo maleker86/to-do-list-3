@@ -8,7 +8,7 @@ function displayMessage() {
 
     // document.body.append(sentence);
     // sentence.innerText = importedMessage;
-    console.log(importedMessage);
+    console.log(importedMessage.message);
   } else {
     console.log("There is no message.");
   }
