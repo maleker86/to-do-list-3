@@ -1,21 +1,46 @@
 import _ from "lodash";
-import setMessage from "./task_setter.js";
+// import { loadField, setMessage } from "./task_setter.js";
+import { loadField } from "./task_setter.js";
+
+loadField();
+
+loadField();
+
+(function createButton() {
+  let button = document.createElement("button");
+
+  document.body.appendChild(button);
+
+  button.innerText = "Button!";
+
+  button.addEventListener("click", displayMessage);
+
+})();
 
 function displayMessage() {
-  if (setMessage !== "") {
-    let importedMessage = setMessage().list;
-    // let text = importedMessage.message;
+  let title = document.getElementById("title").value;
 
-    importedMessage.forEach(item => {
-        const sentence = document.createElement("p");
-        document.body.append(sentence);
-        sentence.innerText = item;
-    });
-
-    // console.log(importedMessage.message);
+  if (title !== "") {
+    console.log(title);
   } else {
-    console.log("There is no message.");
+    console.log("I am not reading it")
   }
+
+//   if (setMessage !== "") {
+//     let importedMessage = setMessage().list;
+//     // let text = importedMessage.message;
+
+//     importedMessage.forEach(item => {
+//         const sentence = document.createElement("p");
+//         document.body.append(sentence);
+//         sentence.innerText = item;
+//     });
+
+//     // console.log(importedMessage.message);
+//   } else {
+//     console.log("There is no message.");
+//   }
+// 
 };
 
-displayMessage();
+// displayMessage();
