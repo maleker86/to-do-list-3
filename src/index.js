@@ -4,8 +4,6 @@ import { loadField } from "./task_setter.js";
 
 loadField();
 
-loadField();
-
 (function createButton() {
   let button = document.createElement("button");
 

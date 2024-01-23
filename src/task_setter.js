@@ -1,11 +1,21 @@
 export function loadField() {
-    const text_field = document.createElement("input");
-    text_field.setAttribute("type", "text");
-    text_field.setAttribute("id", "title");
+    function createField() {
+        const text_field = document.createElement("input");
+        text_field.setAttribute("type", "text");
 
-    document.body.appendChild(text_field);
+        document.body.appendChild(text_field);
 
-    return text_field;
+        return text_field;
+    }
+
+    (function loadTitle() {
+        createField()
+        let field = document.getElementsByTagName("input")[0];
+        field.setAttribute("id", "title");
+    })();
+
+
+    // return text_field;
 };
 
 // export function setMessage() {
@@ -15,6 +25,7 @@ export function loadField() {
 //     // let dueDate = window.prompt("What do you want the due Date to be?");
 //     // let priority = window.prompt("What do you want the priority to be? Use 1-3");
 
+//     // let title = loadField.value;
 
 //     const list = [];
 //     list.push(title);
