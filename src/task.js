@@ -1,8 +1,11 @@
 export function loadField() {
     function createField() {
-      const text_field = document.createElement("input");
       const field_set = document.createElement("fieldset");
+      const field_legend = document.createElement("legend");
       const field_label = document.createElement("label");
+      const text_field = document.createElement("input");
+
+      field_legend.innerText = "Task To Do:"
 
       field_label.innerText = "Task title: ";
       field_label.setAttribute("for", "title_box");
@@ -10,6 +13,7 @@ export function loadField() {
       text_field.setAttribute("label", "title");
 
       document.body.append(field_set);
+      field_set.appendChild(field_legend);
       field_set.appendChild(field_label);
       field_set.appendChild(text_field);
   
