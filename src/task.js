@@ -48,7 +48,13 @@ export function displayField() {
       title_output.innerText = title; 
     }
 
+    function clearInputField() {
+      let inputField = document.getElementById("title_box");
+      inputField.value = "";
+    }
+
     createTitle();
+    clearInputField();
   }
 
   createOutputs();
