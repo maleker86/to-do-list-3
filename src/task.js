@@ -40,11 +40,15 @@ export function displayField() {
   }
 
   function createOutputs() {
-    let p = document.createElement("p");
-    document.body.appendChild(p);
+    function createTitle() {
+      let p = document.createElement("p");
+      document.body.appendChild(p);
+  
+      let title_output = p;
+      title_output.innerText = title; 
+    }
 
-    let title_output = p;
-    title_output.innerText = title; 
+    createTitle();
   }
 
   createOutputs();
