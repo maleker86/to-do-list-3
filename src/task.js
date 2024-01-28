@@ -46,9 +46,9 @@ export function displayTask() {
       return p;
     }
 
-    let title_slot = createTitle();
 
     function assignTitle() {
+      let title_slot = createTitle();
       let title_output = title_slot;
       title_output.innerText = title; 
     }
