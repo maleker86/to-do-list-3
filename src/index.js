@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { createForm, displayField } from "./task.js";
+import { createForm, displayTask } from "./task.js";
 
 createForm();
 
@@ -11,6 +11,6 @@ createForm();
 
   button.innerText = "Submit the info!";
 
-  button.addEventListener("click", displayField);
+  button.addEventListener("click", displayTask);
 
 })();

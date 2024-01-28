@@ -13,7 +13,7 @@ export function createForm() {
     field_set.appendChild(text_field);
   };
 
-  function loadTitle() {
+  function loadTitleField() {
     let field = document.getElementsByTagName("input")[0];
     let label = document.getElementsByTagName("label")[0];
 
@@ -26,25 +26,30 @@ export function createForm() {
   };
 
   createFields();
-  loadTitle();
+  loadTitleField();
 }
 
-export function displayField() {
+export function displayTask() {
   let title = document.getElementById("title_box").value;
-
-  if (title !== "") {
-    console.log(title);
-    //   title.value = "";
-  } else {
-    console.log("I receieve blank input");
-  }
 
   function createOutputs() {
     function createTitle() {
       let p = document.createElement("p");
+
+      if (title === "") {
+        console.log("I receieve blank input");
+        return;
+      } 
+
       document.body.appendChild(p);
   
-      let title_output = p;
+      return p;
+    }
+
+    let title_slot = createTitle();
+
+    function assignTitle() {
+      let title_output = title_slot;
       title_output.innerText = title; 
     }
 
@@ -53,7 +58,7 @@ export function displayField() {
       inputField.value = "";
     }
 
-    createTitle();
+    assignTitle();
     clearInputField();
   }
 
