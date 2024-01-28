@@ -1,8 +1,7 @@
 import _ from "lodash";
-// import { loadField, setMessage } from "./task.js";
-import { loadField, displayField } from "./task.js";
+import { createForm, displayField } from "./task.js";
 
-loadField();
+createForm();
 
 (function createButton() {
   let button = document.createElement("button");
