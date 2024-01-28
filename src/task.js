@@ -7,11 +7,6 @@ export function loadField() {
 
       field_legend.innerText = "Task To Do:"
 
-      field_label.innerText = "Task title: ";
-      field_label.setAttribute("for", "title_box");
-      text_field.setAttribute("type", "text");
-      text_field.setAttribute("label", "title");
-
       document.body.append(field_set);
       field_set.appendChild(field_legend);
       field_set.appendChild(field_label);
@@ -23,7 +18,15 @@ export function loadField() {
     (function loadTitle() {
       createField();
       let field = document.getElementsByTagName("input")[0];
+      let label = document.getElementsByTagName("label")[0];
+
       field.setAttribute("id", "title_box");
+      field.setAttribute("type", "text");
+      field.setAttribute("label", "title");
+
+      label.innerText = "Task title: ";
+      label.setAttribute("for", "title_box");
+      
     })();
   }
   
