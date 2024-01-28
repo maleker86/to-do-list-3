@@ -36,8 +36,19 @@ export function displayField() {
     console.log(title);
     //   title.value = "";
   } else {
-    console.log("I am not reading it");
+    console.log("I receieve blank input");
   }
+
+  function createOutputs() {
+    let p = document.createElement("p");
+    document.body.appendChild(p);
+
+    let title_output = p;
+    title_output.innerText = title; 
+  }
+
+  createOutputs();
+  // displayTitle();
 
   // const clearField = () => {
   //     title.value = "";
