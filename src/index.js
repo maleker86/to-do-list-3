@@ -4,9 +4,10 @@ import { createForm, displayField } from "./task.js";
 createForm();
 
 (function createButton() {
+  let form = document.getElementsByTagName("fieldset")[0];
   let button = document.createElement("button");
 
-  document.body.appendChild(button);
+  form.appendChild(button);
 
   button.innerText = "Submit the info!";
 
