@@ -1,4 +1,4 @@
-import _ from "lodash";
+import './style.css';
 import { createForm, displayTask } from "./task.js";
 
 createForm();
