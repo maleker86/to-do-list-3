@@ -3,14 +3,13 @@ import { createForm, displayTask } from "./task.js";
 
 createForm();
 
-(function createButton() {
-  let form = document.getElementsByTagName("form")[0];
-  let button = document.createElement("button");
+//create submit button
+// let form = document.getElementById("form");
+let button = document.createElement("button");
 
-  form.appendChild(button);
+document.body.appendChild(button);
 
-  button.innerText = "Submit the info!";
+button.innerText = "Submit the info!";
 
-  button.addEventListener("click", displayTask);
+button.addEventListener("click", displayTask);
 
-})();

@@ -5,9 +5,10 @@ export function createForm() {
     const field_legend = document.createElement("legend");
     let h1 = document.createElement("h1");
 
-    document.body.append(form);
+    document.body.prepend(form);
     form.prepend(h1);
     h1.innerText = "New Task:"
+    form.setAttribute("id","form");
     // form.appendChild(field_set);
     // field_set.appendChild(field_legend);
     // field_legend.innerText = "Task:";
@@ -33,11 +34,9 @@ export function createForm() {
     createFormElement("desc","description_input","Description:","textarea");
     createFormElement("due","due_date_input","Due Date:","input","date");
     createFormElement("priority","priority_number_input","Priority:","input","number");
+    // optional elements for post-completion: notes, checklist
 
-    console.log(priority);
-
-    //stragglers
-    
+    //stragglers for the constructor above
     const priority = document.getElementById("priority");
     const priority_min = 1
     const priority_max = 3;
@@ -46,48 +45,16 @@ export function createForm() {
 
   }
 
-  // let form_element_count = 2;
-  // for (let i = 0; i < form_element_count; i++) {
-  //   const field_label = document.createElement("label");
-  //   const text_field = document.createElement("input");
-
-  //   field_set.appendChild(field_label);
-  //   field_set.appendChild(text_field);
-  // }
-
-
     createFieldSet();
-    // loadTitleField();
-}
-
-// function loadTitleField() {
-//   createFormElement()
-//   // let field = document.getElementsByTagName("input")[0];
-//   // let label = document.getElementsByTagName("label")[0];
-
-//   // label.innerText = "Task title: ";
-//   // label.setAttribute("for", "title_box");
-// }
-
-// function loadDescField() {
-//   let field = document.getElementsByTagName("input")[1];
-//   let label = document.getElementsByTagName("label")[1];
-
-//   field.setAttribute("id", "desc_box");
-//   field.setAttribute("type", "textarea");
-//   field.setAttribute("label", "desc");
-
-//   label.innerText = "Task desc: ";
-//   label.setAttribute("for", "desc_box");
-// }
-
-// loadDescField();
+};
 
 export function displayTask() {
-  let title = document.getElementById("title_box").value;
+  let title = document.getElementById("title").value;
+
+  console.log("Title is: " + title);
 
   function createOutputs() {
-    function createTitle() {
+    (function createTitle() {
       let p = document.createElement("p");
 
       if (title === "") {
@@ -97,28 +64,28 @@ export function displayTask() {
 
       document.body.appendChild(p);
 
-      return p;
+      p.innerText = title;
+    })();
+  }
+
+  //make this apply to all!
+  function clearInputFields() {
+    let inputFields = document.getElementsByTagName("input");
+
+    let i = 0;
+    while (i < inputFields.length) {
+      console.log("hi  this is an array item!");
+      console.log(i.name);
+      i++;
     }
 
-    function assignTitle() {
-      let title_slot = createTitle();
-      let title_output = title_slot;
-      title_output.innerText = title;
-    }
-
-    function clearInputField() {
-      let inputField = document.getElementById("title_box");
-      inputField.value = "";
-    }
-
-    assignTitle();
-    clearInputField();
+    // inputField.value = "";
   }
 
   createOutputs();
-  // displayTitle();
+  clearInputFields();
 
   // const clearField = () => {
   //     title.value = "";
   //   }
-}
+};
