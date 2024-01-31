@@ -34,8 +34,10 @@ export function createForm() {
     createFormElement("due","due_date_input","Due Date:","input","date");
     createFormElement("priority","priority_number_input","Priority:","input","number");
 
-    //stragglers
+    console.log(priority);
 
+    //stragglers
+    
     const priority = document.getElementById("priority");
     const priority_min = 1
     const priority_max = 3;
