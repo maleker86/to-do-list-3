@@ -1,7 +1,16 @@
-label {
-    white-space: pre;
-}
-
 body {
     background-color: lightblue;
+}
+
+form {
+    background-color: lightgray;
+}
+
+label {
+    white-space: pre;
+    padding: 1vw;
+}
+
+button {
+    white-space: pre;
 }

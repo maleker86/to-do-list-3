@@ -1,29 +1,35 @@
 export function createForm() {
   function createFieldSet() {
+    const form = document.createElement("form");
     const field_set = document.createElement("fieldset");
     const field_legend = document.createElement("legend");
+    let h1 = document.createElement("h1");
 
-    field_legend.innerText = "Task To Do:";
-
-    document.body.append(field_set);
+    document.body.append(form);
+    form.prepend(h1);
+    h1.innerText = "New Task:"
+    form.appendChild(field_set);
     field_set.appendChild(field_legend);
+    field_legend.innerText = "Task:";
+
 
     // create anything
-    function createFormElement(item_id, label_text, element_tag, element_type) {
+    function createFormElement(item_id, name, label_text,element_tag, element_type) {
       const field_label = document.createElement("label");
       const element_itself = document.createElement(element_tag);
 
       field_set.appendChild(field_label);
       field_set.appendChild(element_itself);
 
-      field_label.innerText = label_text;
+      field_label.innerText = '\n' + label_text;
       element_itself.setAttribute("type", element_type);
       element_itself.setAttribute("label", label_text);
       element_itself.setAttribute("id", item_id);
+      element_itself.setAttribute("name", name)
     }
 
-
-    createFormElement("title", "Title:", "input", "text");
+    createFormElement("title","title_input","Title:","input","text");
+    createFormElement("desc","description_input","Description:","textarea");
   }
 
   // let form_element_count = 2;
