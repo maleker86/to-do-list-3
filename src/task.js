@@ -38,7 +38,7 @@ export function createForm() {
     createFormElement("desc", "description_input", "Description:", "textarea");
     createFormElement("due", "due_date_input", "Due Date:", "input", "date");
     createFormElement(
-      "priority",
+      "priority", 
       "priority_number_input",
       "Priority:",
       "input",
@@ -57,57 +57,66 @@ export function createForm() {
   createFieldSet();
 }
 
-export function displayTask() {
+const task_list = [];
+
+export function CreateTask() {
   function Task(title, desc, due, priority) {
-    this.title = 
-    document.getElementById("title").value;
+    this.title = document.getElementById("title").value;
     this.description = document.getElementById("desc").value;
     this.due_date = document.getElementById("due").value;
     this.priority = document.getElementById("priority").value;
-  }
+  };
 
-  const task = new Task();
+  let task = new Task();
 
-  console.log("the task is ", task)
-  console.log(JSON.stringify(task));
-
-  const task_list = [];
+  console.log("Title is: " + title.value);
+  console.log(task);
   task_list.push(task);
-  console.log("the whole list is: ", task_list);
 
-  // const task1 = new Task(
-  //   document.getElementById("title").value,
-  //   document.getElementById("desc").value,
-  //   document.getElementById("due").value,
-  //   document.getElementById("priority").value,
-  // );
+function clearInputFields() {
+  let title = document.getElementById("title");
+  let desc = document.getElementById("desc");
+  let priority = document.getElementById("priority");
+  let due = document.getElementById("due");
 
-  // let title = document.getElementById("title");
-
-  // console.log("Title is: " + title.value);
-
-  function createOutputs() {
-    (function createTitle() {
-      // let p = document.createElement("p");
-      // if (title.value === "") {
-      //   console.log("I received blank input");
-      //   return;
-      // }
-      // document.body.appendChild(p);
-      // p.innerText = title.value;
-    })();
-  }
-
-  //make this apply to all!
-  function clearInputFields() {
-    title.value = "";
-    desc.value = "";
-  }
-
-  createOutputs();
-  clearInputFields();
-
-  // const clearField = () => {
-  //     title.value = "";
-  //   }
+  title.value = "";
+  desc.value = "";
+  priority.value = "";
+  due.value = "";
 }
+
+function displayTask() {
+  console.log(task_list);
+}
+
+clearInputFields();
+displayTask();
+};
+
+
+
+// function createOutputs() {
+//   let task = CreateTask();
+//   console.log("the task is ", task);
+//   task_list.push(task);
+//   console.log("the whole list is: ", task_list);
+
+//   // (function createTitle() {
+//   // let p = document.createElement("p");
+//   // if (title.value === "") {
+//   //   console.log("I received blank input");
+//   //   return;
+//   // }
+//   // document.body.appendChild(p);
+//   // p.innerText = title.value;
+//   // })();
+// }
+
+// //make this apply to all!
+
+// createOutputs();
+// clearInputFields();
+
+// // const clearField = () => {
+// //     title.value = "";
+// //   }
