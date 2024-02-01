@@ -49,37 +49,29 @@ export function createForm() {
 };
 
 export function displayTask() {
-  let title = document.getElementById("title").value;
+  let title = document.getElementById("title");
 
-  console.log("Title is: " + title);
+  console.log("Title is: " + title.value);
 
   function createOutputs() {
     (function createTitle() {
       let p = document.createElement("p");
 
-      if (title === "") {
-        console.log("I receieve blank input");
+      if (title.value === "") {
+        console.log("I received blank input");
         return;
       }
 
       document.body.appendChild(p);
 
-      p.innerText = title;
+      p.innerText = title.value;
     })();
   }
 
   //make this apply to all!
   function clearInputFields() {
-    let inputFields = document.getElementsByTagName("input");
-
-    let i = 0;
-    while (i < inputFields.length) {
-      console.log("hi  this is an array item!");
-      console.log(i.name);
-      i++;
-    }
-
-    // inputField.value = "";
+    title.value = "";
+    
   }
 
   createOutputs();

@@ -3,7 +3,7 @@ A local storage-enabled To Do project organizer built using Webpack framework &a
 
 <p>To Do:</p>
 <ul>
-<li><strikethrough>Relocate Assigning Task properties logic (re: label - "title") to "Load Title" for Single Responsibilty Coding. CreateForm() should only Create Form, not attribute it.</strikethrough></li>
+<li>~~Relocate Assigning Task properties logic (re: label - "title") to "Load Title" for Single Responsibilty Coding. CreateForm() should only Create Form, not attribute it.~~</li>
 <li>Add a class to all Input Fields because TextArea is not an input field! Make your own array. With blackjack. And--</li>
 </ul>
 
