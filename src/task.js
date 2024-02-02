@@ -91,11 +91,13 @@ function displayTask() {
   for (let i = 0; i < task_list.length; i++) {
     let container = document.createElement("div");
 
+    console.log("We are on pass ", i);
+
     document.body.append(container);
     // let p = document.createElement("p");
     //       container.append(p);
     //       p.innerText = i;
-    const keys = Object.keys(task_list[i]);
+    // const keys = Object.keys(task_list[i]);
     const values = Object.values(task_list[i]);
 
     // console.log(keys);
@@ -105,6 +107,9 @@ function displayTask() {
         console.log("This value contains nothing");
       } else {
         console.log(value);
+        let p = document.createElement("p");
+        container.append(p);
+        p.innerText = value;
       }
     });
 
