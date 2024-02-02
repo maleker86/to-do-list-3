@@ -69,8 +69,8 @@ export function CreateTask() {
 
   let task = new Task();
 
-  console.log("Title is: " + title.value);
-  console.log(task);
+  // console.log("Title is: " + title.value);
+  // console.log(task);
   task_list.push(task);
 
 function clearInputFields() {
@@ -86,9 +86,32 @@ function clearInputFields() {
 }
 
 function displayTask() {
-  console.log(task_list);
-}
+  // console.log("the due date is", task_list[0].due_date);
 
+  for (let i = 0; i < task_list.length; i++) {
+    let container = document.createElement("div");
+
+    document.body.append(container);
+    // let p = document.createElement("p");
+    //       container.append(p);
+    //       p.innerText = i;
+    const keys = Object.keys(task_list[i]);
+    const values = Object.values(task_list[i]);
+
+    // console.log(keys);
+    // console.log(values);
+    values.forEach((value) => {
+      if(value == "") {
+        console.log("This value contains nothing");
+      } else {
+        console.log(value);
+      }
+    });
+
+  }
+}
+  
+  
 clearInputFields();
 displayTask();
 };
