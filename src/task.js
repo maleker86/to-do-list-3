@@ -1,6 +1,6 @@
 export function createTaskHolder() {
   let task_container = document.createElement("div");
-  task_container.setAttribute("id","container");
+  task_container.setAttribute("id", "container");
 
   document.body.append(task_container);
 }
@@ -69,7 +69,7 @@ export function createForm() {
 
     button.innerText = "Submit the info!";
     button.addEventListener("click", CreateTask);
-    button.addEventListener("click", clearInputFields)
+    button.addEventListener("click", clearInputFields);
   }
 
   function clearInputFields() {
@@ -77,7 +77,7 @@ export function createForm() {
     let desc = document.getElementById("desc");
     let priority = document.getElementById("priority");
     let due = document.getElementById("due");
-  
+
     title.value = "";
     desc.value = "";
     priority.value = "";
@@ -103,8 +103,8 @@ function CreateTask() {
   // console.log("Title is: " + title.value);
   // console.log(task);
 
-  console.log("the array is:", task);
-  console.log(`the title is ${task.title}`);
+  // console.log("the array is:", task);
+  // console.log(`the title is ${task.title}`);
 
   if (task.title == "") {
     logError();
@@ -115,10 +115,9 @@ function CreateTask() {
     console.log("Please add a title to continue!");
   }
 
-    task_list.unshift(task);
+  task_list.unshift(task);
 
-    console.log("this task list is ", task_list); 
-
+  console.log("this task list is ", task_list);
 
   function displayTask() {
     // console.log("the due date is", task_list[0].due_date);
@@ -129,8 +128,8 @@ function CreateTask() {
       let container = document.getElementById("container");
       let task_box = document.createElement("div");
 
-      console.log("We found ", i + 1, " object(s)");
-      console.log("the item is ", task_list[i]);
+      console.log("We are printing object ", i + 1);
+      // console.log("the item is ", task_list[i]);
 
       //clear previous inputs so they do not duplicate!
 
@@ -140,7 +139,7 @@ function CreateTask() {
       // console.log("values are", values);
       // console.log("the 1st value itself is:", values[0]);
       // console.log("keys are", keys);
-      // console.log("the 1st key itself is:", keys[0]); 
+      // console.log("the 1st key itself is:", keys[0]);
 
       container.append(task_box);
       task_box.classList.add("task");
@@ -160,21 +159,40 @@ function CreateTask() {
       //   p.innerText = value;
       // });
 
-      for (let i = 0; i < values.length; i++) {
-        // console.log("value is", values[i]);
-        let p = document.createElement("p");
-        let h2 = document.createElement("h2");
-        if (keys[i] == "title") {
-          task_box.append(h2);
-          h2.setAttribute("class",keys[i]);
-          h2.innerText = values[i];
-        } else {
-        task_box.append(p);
-        // console.log("This is from the item called:", keys[i]);
-        p.setAttribute("class",keys[i]);
-        p.innerText = values[i];
-        }
+
+      let not_title = values.shift();
+      console.log("the items that aren't a title include:", values);
+      if (values.every( (val, i, arr) => val === arr[0])) {
+        console.log("They are all blank now");
+        console.log("The title is", not_title);
       }
+
+      //   for (let i = 0; i < not_title.length; i++) {
+      //     for (let i = 0; i < values.length; i++) {
+      //       // console.log("value is", values[i]);
+      //       let details = document.createElement("details");
+      //       let summary = document.createElement("summary");
+      //       let p = document.createElement("p");
+      //       let h3 = document.createElement("h3");
+
+      //         if (not_title[i] !== "") {
+      //           if (keys[i] == "title") {
+      //             task_box.append(details);
+      //             details.append(summary);
+      //             summary.append(h3);
+      //             h3.setAttribute("class",keys[i]);
+      //             h3.innerText = values[i];
+
+      //       }
+      //     }
+      //   }  }
+      //         details.append(p);
+      //         p.setAttribute("class",keys[i]);
+      //         p.innerText = values[i];
+      //       } else {
+      //         task_box.append(h3);
+      //         h3.setAttribute("class",keys[i]);
+      //         h3.innerText = values[i];
     }
   }
 
