@@ -1,3 +1,10 @@
+export function createTaskHolder() {
+  let task_container = document.createElement("div");
+  task_container.setAttribute("id","container");
+
+  document.body.append(task_container);
+}
+
 export function createForm() {
   function createFieldSet() {
     const form = document.createElement("form");
