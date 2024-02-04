@@ -141,9 +141,6 @@ function CreateTask() {
       // console.log("keys are", keys);
       // console.log("the 1st key itself is:", keys[0]);
 
-      container.append(task_box);
-      task_box.classList.add("task");
-
       // let p = document.createElement("p");
       //       container.append(p);
       //       p.innerText = i;
@@ -159,14 +156,49 @@ function CreateTask() {
       //   p.innerText = value;
       // });
 
-
-      let not_title = values.shift();
+      let isolated_title = values.shift();
       console.log("the items that aren't a title include:", values);
-      if (values.every( (val, i, arr) => val === arr[0])) {
-        console.log("They are all blank now");
-        console.log("The title is", not_title);
-      }
+      if (values.every((val, i, arr) => val === arr[0])) {
+        let h3 = document.createElement("h3");
 
+        // console.log("They are all blank now");
+        console.log("The title is", isolated_title);
+
+        container.append(task_box);
+        task_box.classList.add("task");
+
+        task_box.append(h3);
+        h3.setAttribute("class", "title");
+        h3.innerText = isolated_title;
+      } else {
+        console.log("The not-same values are: ", values);
+        for (let i = 0; i < keys.length; i++) {
+          // console.log("they keys are now: ", keys);
+          // console.log("value is", values[i]);
+          let details = document.createElement("details");
+          let summary = document.createElement("summary");
+          let p = document.createElement("p");
+          let h3 = document.createElement("h3");
+          console.log("The title is", isolated_title);
+
+          container.append(task_box);
+          task_box.classList.add("task");
+
+          if (keys[i] == "title") {
+            task_box.append(details);
+            details.append(summary);
+            summary.innerHTML = h3;
+            h3.setAttribute("class", "title");
+            h3.innerText = isolated_title;
+          }
+          for (let i = 0; i < values.length; i++) {
+            console.log("this value is: ", values[i]);
+            details.append(p);
+            p.setAttribute("class", keys[i]);
+            p.innerText = values[i];
+          }
+        }
+      }
       //   for (let i = 0; i < not_title.length; i++) {
       //     for (let i = 0; i < values.length; i++) {
       //       // console.log("value is", values[i]);
