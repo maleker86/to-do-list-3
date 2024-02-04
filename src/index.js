@@ -1,12 +1,12 @@
 import './style.css';
-import { createForm, CreateTask } from "./task.js";
+import { createForm, } from "./task.js";
 
+function createTaskHolder() {
+    let task_container = document.createElement("div");
+    task_container.setAttribute("id","container");
+
+    document.body.append(task_container);
+}
+
+createTaskHolder();
 createForm();
-
-let button = document.createElement("button");
-
-document.body.appendChild(button);
-
-button.innerText = "Submit the info!";
-
-button.addEventListener("click", CreateTask);

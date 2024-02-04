@@ -1,4 +1,8 @@
 body {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto;
     background-color: lightblue;
 }
 
@@ -8,6 +12,7 @@ h1 {
 }
 
 form {
+    grid-column-start: 2;
     display: grid;
     gap: 5px;
     grid-template-columns: 1fr 3fr 1fr;
@@ -18,3 +23,23 @@ form * {
     grid-column-start: 2;
 }
 
+textarea {
+    resize: vertical;
+}
+
+#container {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+}
+
+.task {
+    max-height: 100px;
+    overflow: scroll;
+    border: 1px solid black;
+    padding: 10px;
+    scrollbar-gutter: stable both-edges;
+}

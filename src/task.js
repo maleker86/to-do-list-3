@@ -38,7 +38,7 @@ export function createForm() {
     createFormElement("desc", "description_input", "Description:", "textarea");
     createFormElement("due", "due_date_input", "Due Date:", "input", "date");
     createFormElement(
-      "priority", 
+      "priority",
       "priority_number_input",
       "Priority:",
       "input",
@@ -54,97 +54,85 @@ export function createForm() {
     priority.setAttribute("max", priority_max);
   }
 
+  function createSubmitButton() {
+    let button = document.createElement("button");
+    button.setAttribute("type","button");
+
+    form.appendChild(button);
+
+    button.innerText = "Submit the info!";
+    button.addEventListener("click", CreateTask);
+  }
+
   createFieldSet();
+  createSubmitButton();
 }
 
 const task_list = [];
 
-export function CreateTask() {
+function CreateTask() {
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;
     this.description = document.getElementById("desc").value;
     this.due_date = document.getElementById("due").value;
     this.priority = document.getElementById("priority").value;
-  };
+  }
 
   let task = new Task();
 
   // console.log("Title is: " + title.value);
   // console.log(task);
+
   task_list.push(task);
 
-function clearInputFields() {
-  let title = document.getElementById("title");
-  let desc = document.getElementById("desc");
-  let priority = document.getElementById("priority");
-  let due = document.getElementById("due");
+  function clearInputFields() {
+    let title = document.getElementById("title");
+    let desc = document.getElementById("desc");
+    let priority = document.getElementById("priority");
+    let due = document.getElementById("due");
 
-  title.value = "";
-  desc.value = "";
-  priority.value = "";
-  due.value = "";
-}
-
-function displayTask() {
-  // console.log("the due date is", task_list[0].due_date);
-
-  for (let i = 0; i < task_list.length; i++) {
-    let container = document.createElement("div");
-
-    console.log("We are on pass ", i);
-
-    document.body.append(container);
-    // let p = document.createElement("p");
-    //       container.append(p);
-    //       p.innerText = i;
-    // const keys = Object.keys(task_list[i]);
-    const values = Object.values(task_list[i]);
-
-    // console.log(keys);
-    // console.log(values);
-    values.forEach((value) => {
-      if(value == "") {
-        console.log("This value contains nothing");
-      } else {
-        console.log(value);
-        let p = document.createElement("p");
-        container.append(p);
-        p.innerText = value;
-      }
-    });
-
+    title.value = "";
+    desc.value = "";
+    priority.value = "";
+    due.value = "";
   }
+
+  function displayTask() {
+    // console.log("the due date is", task_list[0].due_date);
+
+    container.innerHTML = "";
+
+    for (let i = 0; i < task_list.length; i++) {
+      let container = document.getElementById("container");
+      let task_box = document.createElement("div");
+
+      console.log("We found ", i + 1, " object(s)");
+
+      //clear previous inputs so they do not duplicate!
+
+      container.append(task_box);
+      task_box.classList.add("task");
+      // let p = document.createElement("p");
+      //       container.append(p);
+      //       p.innerText = i;
+      // const keys = Object.keys(task_list[i]);
+      const values = Object.values(task_list[i]);
+
+      // console.log(keys);
+      // console.log(values);
+      values.forEach((value) => {
+        if (value == "") {
+          console.log("This value contains nothing");
+        } else {
+          console.log(value);
+          let p = document.createElement("p");
+          task_box.append(p);
+          p.innerText = value;
+        }
+      });
+    }
+  }
+
+  clearInputFields();
+  displayTask();
 }
-  
-  
-clearInputFields();
-displayTask();
-};
-
-
-
-// function createOutputs() {
-//   let task = CreateTask();
-//   console.log("the task is ", task);
-//   task_list.push(task);
-//   console.log("the whole list is: ", task_list);
-
-//   // (function createTitle() {
-//   // let p = document.createElement("p");
-//   // if (title.value === "") {
-//   //   console.log("I received blank input");
-//   //   return;
-//   // }
-//   // document.body.appendChild(p);
-//   // p.innerText = title.value;
-//   // })();
-// }
-
-// //make this apply to all!
-
-// createOutputs();
-// clearInputFields();
-
-// // const clearField = () => {
-// //     title.value = "";
-// //   }
