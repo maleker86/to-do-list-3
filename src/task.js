@@ -122,7 +122,6 @@ function CreateTask() {
 
   task_list.unshift(task);
 
-
   console.log("this task list is ", task_list);
 
   function displayTask() {
@@ -133,107 +132,30 @@ function CreateTask() {
     container.innerHTML = "";
 
     for (let i = 0; i < task_list.length; i++) {
-      let container = document.getElementById("container");
-      let task_box = document.createElement("div");
+      // let container = document.getElementById("container");
+      // let task_box = document.createElement("div");
 
       console.log("We are printing object ", i + 1);
       // console.log("the item is ", task_list[i]);
 
       //clear previous inputs so they do not duplicate!
 
-      const values = Object.values(task_list[i]);
-      const keys = Object.keys(task_list[i]);
+      // console.log([i]);
+      console.log("the items in the list are: ", task_list[i]);
+      // console.log(task_list[i].title);
+      // console.log(task_list[i].description);
+      // console.log(task_list[i].priority);
+      // console.log(task_list[i].due_date);
+      let shortcut = task_list[i];
 
-      // console.log("values are", values);
-      // console.log("the 1st value itself is:", values[0]);
-      // console.log("keys are", keys);
-      // console.log("the 1st key itself is:", keys[0]);
+      console.log(shortcut);
 
-      // let p = document.createElement("p");
-      //       container.append(p);
-      //       p.innerText = i;
-      // const keys = Object.keys(task_list[i]);
-
-      // console.log(keys);
-      // console.log(values);
-
-      // values.forEach((value) => {
-      //   console.log(value);
-      //   let p = document.createElement("p");
-      //   task_box.append(p);
-      //   p.innerText = value;
-      // });
-
-      let isolated_title = values.shift();
-      console.log("the items that aren't a title include:", values);
-      if (values.every((val, i, arr) => val === arr[0])) {
-        let h3 = document.createElement("h3");
-
-        // console.log("They are all blank now");
-        console.log("The title is", isolated_title);
-
-        container.append(task_box);
-        task_box.classList.add("task");
-
-        task_box.append(h3);
-        h3.setAttribute("class", "title");
-        h3.innerText = isolated_title;
+      if (shortcut.description == shortcut.priority && shortcut.priority == shortcut.due_date) {
+        console.log("They're equal Jim");
       } else {
-        console.log("The not-same values are: ", values);
-        for (let i = 0; i < keys.length; i++) {
-          // console.log("they keys are now: ", keys);
-          // console.log("value is", values[i]);
-          let details = document.createElement("details");
-          let summary = document.createElement("summary");
-          let p = document.createElement("p");
-          let h3 = document.createElement("h3");
-          console.log("The title is", isolated_title);
-
-          container.append(task_box);
-          task_box.classList.add("task");
-
-          if (keys[i] === "title") {
-            console.log("I am looking in: ",keys[i]);
-            console.log("this value (title) is: ", values[i]);
-            task_box.append(details);
-            details.append(summary);
-            summary.innerHTML = h3;
-            h3.setAttribute("class", "title");
-            h3.innerText = keys[i];
-          } else {
-              console.log("this (not title) value is: ", values[i]);
-              details.append(p);
-              p.setAttribute("class", keys[i]);
-              p.innerText = values[i];
-          }
-        }
+        console.log("They are not equal");
       }
-      //   for (let i = 0; i < not_title.length; i++) {
-      //     for (let i = 0; i < values.length; i++) {
-      //       // console.log("value is", values[i]);
-      //       let details = document.createElement("details");
-      //       let summary = document.createElement("summary");
-      //       let p = document.createElement("p");
-      //       let h3 = document.createElement("h3");
-
-      //         if (not_title[i] !== "") {
-      //           if (keys[i] == "title") {
-      //             task_box.append(details);
-      //             details.append(summary);
-      //             summary.append(h3);
-      //             h3.setAttribute("class",keys[i]);
-      //             h3.innerText = values[i];
-
-      //       }
-      //     }
-      //   }  }
-      //         details.append(p);
-      //         p.setAttribute("class",keys[i]);
-      //         p.innerText = values[i];
-      //       } else {
-      //         task_box.append(h3);
-      //         h3.setAttribute("class",keys[i]);
-      //         h3.innerText = values[i];
+     
     }
   }
 
