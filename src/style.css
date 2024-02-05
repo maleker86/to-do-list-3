@@ -54,6 +54,7 @@ form * {
 
 textarea {
     resize: vertical;
+    max-width: 48vw;
 }
 
 #project {
