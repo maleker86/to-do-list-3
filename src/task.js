@@ -1,8 +1,9 @@
 export function createTaskHolder() {
   let task_container = document.createElement("div");
+  let main = document.getElementById("main");
   task_container.setAttribute("id", "container");
 
-  document.body.append(task_container);
+  main.append(task_container);
 }
 
 export function createForm() {
@@ -68,6 +69,7 @@ export function createForm() {
     form.appendChild(button);
 
     button.innerText = "Submit the info!";
+    button.style.width = "flex-self";
     button.addEventListener("click", CreateTask);
     button.addEventListener("click", clearInputFields);
   }
@@ -100,6 +102,8 @@ function CreateTask() {
 
   let task = new Task();
 
+  let title_box = document.getElementById("title");
+
   // console.log("Title is: " + title.value);
   // console.log(task);
 
@@ -113,14 +117,18 @@ function CreateTask() {
 
   function logError() {
     console.log("Please add a title to continue!");
+    title_box.style.border = "1px solid red";
   }
 
   task_list.unshift(task);
+
 
   console.log("this task list is ", task_list);
 
   function displayTask() {
     // console.log("the due date is", task_list[0].due_date);
+
+    title_box.style.border = "none";
 
     container.innerHTML = "";
 
@@ -184,18 +192,19 @@ function CreateTask() {
           container.append(task_box);
           task_box.classList.add("task");
 
-          if (keys[i] == "title") {
+          if (keys[i] === "title") {
+            console.log("I am looking in: ",keys[i]);
+            console.log("this value (title) is: ", values[i]);
             task_box.append(details);
             details.append(summary);
             summary.innerHTML = h3;
             h3.setAttribute("class", "title");
-            h3.innerText = isolated_title;
-          }
-          for (let i = 0; i < values.length; i++) {
-            console.log("this value is: ", values[i]);
-            details.append(p);
-            p.setAttribute("class", keys[i]);
-            p.innerText = values[i];
+            h3.innerText = keys[i];
+          } else {
+              console.log("this (not title) value is: ", values[i]);
+              details.append(p);
+              p.setAttribute("class", keys[i]);
+              p.innerText = values[i];
           }
         }
       }
