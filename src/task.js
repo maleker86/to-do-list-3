@@ -14,6 +14,7 @@ export function createForm() {
     let h1 = document.createElement("h1");
 
     document.body.prepend(form);
+    form.style.display = "grid";
     form.prepend(h1);
     h1.innerText = "New Task:";
     form.setAttribute("id", "form");
@@ -71,7 +72,7 @@ export function createForm() {
     button.innerText = "Submit the info!";
     button.style.width = "flex-self";
     button.addEventListener("click", CreateTask);
-    button.addEventListener("click", clearInputFields);
+    // button.addEventListener("click", clearInputFields);
   }
 
   function clearInputFields() {
@@ -93,6 +94,7 @@ export function createForm() {
 const task_list = [];
 
 function CreateTask() {
+
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;
     this.description = document.getElementById("desc").value;
@@ -117,8 +119,10 @@ function CreateTask() {
 
   function logError() {
     console.log("Please add a title to continue!");
-    title_box.style.border = "1px solid red";
+    title_box.style.border = "2px solid red";
   }
+
+  form.remove();
 
   task_list.unshift(task);
 
@@ -132,15 +136,14 @@ function CreateTask() {
     container.innerHTML = "";
 
     for (let i = 0; i < task_list.length; i++) {
-      // let container = document.getElementById("container");
-      // let task_box = document.createElement("div");
+      let container = document.getElementById("container");
+      let task_box = document.createElement("div");
+      task_box.setAttribute("class","task");
 
       console.log("We are printing object ", i + 1);
       // console.log("the item is ", task_list[i]);
 
-      //clear previous inputs so they do not duplicate!
 
-      // console.log([i]);
       console.log("the items in the list are: ", task_list[i]);
       // console.log(task_list[i].title);
       // console.log(task_list[i].description);
@@ -151,9 +154,44 @@ function CreateTask() {
       console.log(shortcut);
 
       if (shortcut.description == shortcut.priority && shortcut.priority == shortcut.due_date) {
-        console.log("They're equal Jim");
+        console.log("There is only a title");
+        let h3 = document.createElement("h3");
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type","checkbox");
+        
+        container.append(task_box);
+        task_box.append(checkbox);
+        task_box.append(h3);
+        h3.innerText = shortcut.title;
+
       } else {
-        console.log("They are not equal");
+        console.log("There is a title & others");
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        let h3 = document.createElement("h3");
+
+        let non_titles = [shortcut.description, shortcut.priority, shortcut.due_date];
+
+        non_titles.forEach(function(non) {
+          let p = document.createElement("p");
+          p.innerText = non;
+          details.append(p);
+        })
+
+       
+
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type","checkbox");
+        
+        container.append(task_box);
+        task_box.append(details);
+        details.append(summary);
+        summary.append(checkbox);
+        summary.append(h3);
+        h3.innerText = shortcut.title;
+
+
+
       }
      
     }

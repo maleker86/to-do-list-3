@@ -24,7 +24,8 @@ body {
     border: 2px solid purple;
 }
 
-h1 {
+h1, h2, h3 {
+    display: inline;
     margin: 0;
     padding: 0;
 }
@@ -33,10 +34,14 @@ button {
     width: fit-content;
 }
 
+input[type="radio"] {
+    display: inline-block;
+}
+
 form {
     /* grid-column-start: 2; */
     grid-area: main;
-    display: grid;
+    display: none;
     gap: 5px;
     grid-template-columns: 1fr 5fr 1fr;
     justify-items: center;
