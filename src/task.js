@@ -7,6 +7,10 @@ export function createTaskHolder() {
 }
 
 export function createForm() {
+
+  console.log(this.parentNode);
+  let destination = this.parentNode;
+
   function createFieldSet() {
     const form = document.createElement("form");
     const field_set = document.createElement("fieldset");
@@ -89,11 +93,20 @@ export function createForm() {
 
   createFieldSet();
   createSubmitButton();
+
+  return destination;
 }
 
 const task_list = [];
+// console.log(CreateForm.destination);
 
 function CreateTask() {
+
+  console.log(createForm.destination);
+
+  //too late to call this!
+  // console.log(this.parentNode);
+  // let destination = this.parentNode;
 
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;

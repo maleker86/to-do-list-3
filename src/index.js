@@ -13,8 +13,9 @@ header.setAttribute("id","header");
 main.setAttribute("id","main");
 footer.setAttribute("id","footer");
 
-header.append(task_button);
+main.append(task_button);
 task_button.addEventListener("click",createForm)
+// task_button.addEventListener("click",function(){console.log(this.parentNode)});
 task_button.setAttribute("grid-area","header");
 task_button.innerText = "Add Task";
 
