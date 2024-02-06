@@ -8,8 +8,8 @@ export function createTaskHolder() {
 
 export function createForm() {
 
-  console.log(this.parentNode);
   let destination = this.parentNode;
+  console.log("the function that starts it sees: ",destination);
 
   function createFieldSet() {
     const form = document.createElement("form");
@@ -98,7 +98,8 @@ export function createForm() {
 }
 
 const task_list = [];
-// console.log(CreateForm.destination);
+console.log("another function sees: ",CreateForm.destination);
+console.log("another function sees: ",destination);
 
 function CreateTask() {
 
