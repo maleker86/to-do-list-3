@@ -1,7 +1,5 @@
-const task_list = [];
+export const task_list = [];
 
-function CreateTask(title, desc, due, priority) {
-  //define it
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;
     this.description = document.getElementById("desc").value;
@@ -17,4 +15,3 @@ function CreateTask(title, desc, due, priority) {
 
   //test it
   console.log("this task list is ", task_list);
-}
