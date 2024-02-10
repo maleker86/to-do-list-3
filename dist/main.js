@@ -608,15 +608,16 @@ function logTask() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Task: () => (/* binding */ Task),
 /* harmony export */   task_list: () => (/* binding */ task_list)
 /* harmony export */ });
 const task_list = [];
 
-  function Task(title, desc, due, priority) {
-    this.title = document.getElementById("title").value;
-    this.description = document.getElementById("desc").value;
-    this.due_date = document.getElementById("due").value;
-    this.priority = document.getElementById("priority").value;
+function Task(title, desc, due, priority) {
+    this.title = title;
+    this.description = desc;
+    this.due_date = due;
+    this.priority = priority;
   }
 
   //create it
@@ -794,7 +795,7 @@ createFormElement(
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("title").value;
+const title = document.getElementById("task_title").value;
 const desc = document.getElementById("desc").value;
 const due = document.getElementById("due").value;
 const priority = document.getElementById("priority").value;

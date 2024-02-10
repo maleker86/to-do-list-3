@@ -79,7 +79,7 @@ createFormElement(
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("title").value;
+const title = document.getElementById("task_title").value;
 const desc = document.getElementById("desc").value;
 const due = document.getElementById("due").value;
 const priority = document.getElementById("priority").value;
