@@ -1,6 +1,6 @@
 export const task_list = [];
 
-export function Task(title, desc, due, priority) {
+  export function Task(title, desc, due, priority) {
     this.title = title;
     this.description = desc;
     this.due_date = due;
