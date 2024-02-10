@@ -1,10 +1,10 @@
 export const task_list = [];
 
   function Task(title, desc, due, priority) {
-    this.title = document.getElementById("title").value;
-    this.description = document.getElementById("desc").value;
-    this.due_date = document.getElementById("due").value;
-    this.priority = document.getElementById("priority").value;
+    this.title = title;
+    this.description = desc;
+    this.due_date = due;
+    this.priority = priority;
   }
 
   //create it

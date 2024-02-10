@@ -78,12 +78,16 @@ createFormElement(
 );
 // optional elements for post-completion: notes, checklist
 
-//stragglers for the constructor above
-const priority = document.getElementById("priority");
+//define any stragglers for the constructor above
+const title = document.getElementById("title").value;
+const desc = document.getElementById("desc").value;
+const due = document.getElementById("due").value;
+const priority = document.getElementById("priority").value;
+const priority_box = document.getElementById("priority");
 const priority_min = 1;
 const priority_max = 3;
-priority.setAttribute("min", priority_min);
-priority.setAttribute("max", priority_max);
+priority_box.setAttribute("min", priority_min);
+priority_box.setAttribute("max", priority_max);
 
 //create task form submit button
 let button = document.createElement("button");
@@ -96,7 +100,7 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  Task;
+  Task(title,desc,due,priority);
   clearInputFields();
   TaskFormToggle();
   logTask;
