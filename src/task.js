@@ -98,17 +98,17 @@ export function createForm() {
 }
 
 const task_list = [];
-console.log("the space between functions (global) sees: ",CreateForm.destination);
-console.log("the space between functions (global) sees: ",destination);
+// console.log("the space between functions (global) sees: ",CreateForm.destination);
+// console.log("the space between functions (global) sees: ",destination);
 
 function CreateTask() {
 
-  console.log("another function sees: ",CreateForm.destination);
-  console.log("another function sees: ",destination);
+  // console.log("another function sees: ",CreateForm().destination);
+  // console.log("another function sees: ",destination);
 
   //too late to call this!
-  // console.log(this.parentNode);
-  // let destination = this.parentNode;
+  let destination2 = this.parentNode;
+  console.log(destination2);
 
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;

@@ -3,7 +3,7 @@ A local storage-enabled To Do project organizer built using Webpack framework &a
 
 <p>To Do:</p>
 <ul>
-<li>Make Display() only run if Title is not Empty.</li>
+<li>Make Task Button not Clickable when the form is open!!</li>
 </ul>
 
 <p>Thanks to https://stackoverflow.com/questions/25436312/gitignore-not-working Ahmad for .gitignore help
