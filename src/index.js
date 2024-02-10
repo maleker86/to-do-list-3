@@ -1,5 +1,5 @@
 import "./style.css";
-import { AddTask } from "./task.js";
+import { createTask } from "./controller.js";
 
 //create a blank page!
   const header = document.createElement("div");
@@ -97,22 +97,11 @@ import { AddTask } from "./task.js";
     button.innerText = "Submit the info!";
     button.style.width = "flex-self";
     button.addEventListener("click", () => {
-        createTask(); 
+        createTask; 
         clearInputFields();
         TaskFormToggle();
     } );
     // button.addEventListener("click", clearInputFields);
-  
-
-  function createTask() {
-    let task_title = document.getElementById("task_title").value;
-
-    if (task_title == "") {
-        console.log("lol quit it");
-    }
-
-    task_title.AddTask;
-  }
 
   function clearInputFields() {
     let title = document.getElementById("task_title");
@@ -130,7 +119,7 @@ function TaskFormToggle() {
     let form = document.getElementById("task_form");
 
     if (form.style.display == "none") {
-        form.style.display = "block";
+        form.style.display = "grid";
     } else {
         form.style.display = "none";
     };
