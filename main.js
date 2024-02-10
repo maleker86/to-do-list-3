@@ -795,10 +795,10 @@ createFormElement(
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("task_title").value;
-const desc = document.getElementById("desc").value;
-const due = document.getElementById("due").value;
-const priority = document.getElementById("priority").value;
+const title = document.getElementById("task_title");
+const desc = document.getElementById("desc");
+const due = document.getElementById("due");
+const priority = document.getElementById("priority");
 const priority_box = document.getElementById("priority");
 const priority_min = 1;
 const priority_max = 3;
@@ -816,7 +816,7 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.Task)(title,desc,due,priority);
+  (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.Task)(title.value,desc.value,due.value,priority.value);
   clearInputFields();
   TaskFormToggle();
   _controller_js__WEBPACK_IMPORTED_MODULE_2__.logTask;
