@@ -1,114 +1,11 @@
-export function createTaskHolder() {
-  let task_container = document.createElement("div");
-  let main = document.getElementById("main");
-  task_container.setAttribute("id", "container");
-
-  main.append(task_container);
-}
-
-export function createForm() {
-
-  let destination = this.parentNode;
-  console.log("the function that starts it sees: ",destination);
-
-  function createFieldSet() {
-    const form = document.createElement("form");
-    const field_set = document.createElement("fieldset");
-    const field_legend = document.createElement("legend");
-    let h1 = document.createElement("h1");
-
-    document.body.prepend(form);
-    form.style.display = "grid";
-    form.prepend(h1);
-    h1.innerText = "New Task:";
-    form.setAttribute("id", "form");
-    // form.appendChild(field_set);
-    // field_set.appendChild(field_legend);
-    // field_legend.innerText = "Task:";
-
-    // create anything
-    function createFormElement(
-      item_id,
-      name,
-      label_text,
-      element_tag,
-      element_type,
-    ) {
-      const field_label = document.createElement("label");
-      const element_itself = document.createElement(element_tag);
-
-      form.appendChild(field_label);
-      form.appendChild(element_itself);
-
-      element_itself.setAttribute("id", item_id);
-      element_itself.setAttribute("name", name);
-      element_itself.setAttribute("label", label_text);
-      field_label.innerText = "\n" + label_text;
-      element_itself.setAttribute("type", element_type);
-    }
-
-    createFormElement("title", "title_input", "Title:", "input", "text");
-    createFormElement("desc", "description_input", "Description:", "textarea");
-    createFormElement("due", "due_date_input", "Due Date:", "input", "date");
-    createFormElement(
-      "priority",
-      "priority_number_input",
-      "Priority:",
-      "input",
-      "number",
-    );
-    // optional elements for post-completion: notes, checklist
-
-    //stragglers for the constructor above
-    const priority = document.getElementById("priority");
-    const priority_min = 1;
-    const priority_max = 3;
-    priority.setAttribute("min", priority_min);
-    priority.setAttribute("max", priority_max);
-  }
-
-  function createSubmitButton() {
-    let button = document.createElement("button");
-    button.setAttribute("type", "button");
-
-    form.appendChild(button);
-
-    button.innerText = "Submit the info!";
-    button.style.width = "flex-self";
-    button.addEventListener("click", CreateTask);
-    // button.addEventListener("click", clearInputFields);
-  }
-
-  function clearInputFields() {
-    let title = document.getElementById("title");
-    let desc = document.getElementById("desc");
-    let priority = document.getElementById("priority");
-    let due = document.getElementById("due");
-
-    title.value = "";
-    desc.value = "";
-    priority.value = "";
-    due.value = "";
-  }
-
-  createFieldSet();
-  createSubmitButton();
-
-  return destination;
-}
-
 const task_list = [];
 // console.log("the space between functions (global) sees: ",CreateForm.destination);
 // console.log("the space between functions (global) sees: ",destination);
 
-function CreateTask() {
+function CreateTask(title) {
 
   // console.log("another function sees: ",CreateForm().destination);
   // console.log("another function sees: ",destination);
-
-  //too late to call this!
-  let destination2 = this.parentNode;
-  console.log(destination2);
 
   function Task(title, desc, due, priority) {
     this.title = document.getElementById("title").value;

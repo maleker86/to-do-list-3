@@ -1,7 +1,7 @@
 import "./style.css";
-import { CreateTask } from "./task.js";
+import { AddTask } from "./task.js";
 
-function createBlankPage() {
+//create a blank page!
   const header = document.createElement("div");
   const main = document.createElement("div");
   const footer = document.createElement("div");
@@ -19,18 +19,15 @@ function createBlankPage() {
   // task_button.addEventListener("click",function(){console.log(this.parentNode)});
   task_button.setAttribute("grid-area", "header");
   task_button.innerText = "Add Task";
-}
 
-function createTaskHolder() {
+//make task holder on main section
   let task_container = document.createElement("div");
-  let main = document.getElementById("main");
-  task_container.setAttribute("id", "container");
+  task_container.setAttribute("id", "task_container");
 
   main.append(task_container);
-}
 
-function createForm() {
-  function createFieldSet() {
+//create Form
+    //create Fieldsets
     const form = document.createElement("form");
     const field_set = document.createElement("fieldset");
     const field_legend = document.createElement("legend");
@@ -70,7 +67,8 @@ function createForm() {
       element_itself.setAttribute("type", element_type);
     }
 
-    createFormElement("title", "title_input", "Title:", "input", "text");
+    //create the task form elements!
+    createFormElement("task_title", "title_input", "Title:", "input", "text");
     createFormElement("desc", "description_input", "Description:", "textarea");
     createFormElement("due", "due_date_input", "Due Date:", "input", "date");
     createFormElement(
@@ -88,10 +86,9 @@ function createForm() {
     const priority_max = 3;
     priority.setAttribute("min", priority_min);
     priority.setAttribute("max", priority_max);
-  }
+  
 
-  function createSubmitButton() {
-    let form = document.getElementById("task_form");
+  //create task form submit button
     let button = document.createElement("button");
     button.setAttribute("type", "button");
 
@@ -99,12 +96,26 @@ function createForm() {
 
     button.innerText = "Submit the info!";
     button.style.width = "flex-self";
-    button.addEventListener("click", CreateTask);
+    button.addEventListener("click", () => {
+        createTask(); 
+        clearInputFields();
+        TaskFormToggle();
+    } );
     // button.addEventListener("click", clearInputFields);
+  
+
+  function createTask() {
+    let task_title = document.getElementById("task_title").value;
+
+    if (task_title == "") {
+        console.log("lol quit it");
+    }
+
+    task_title.AddTask;
   }
 
   function clearInputFields() {
-    let title = document.getElementById("title");
+    let title = document.getElementById("task_title");
     let desc = document.getElementById("desc");
     let priority = document.getElementById("priority");
     let due = document.getElementById("due");
@@ -115,12 +126,8 @@ function createForm() {
     due.value = "";
   }
 
-  createFieldSet();
-  createSubmitButton();
-}
-
 function TaskFormToggle() {
-    const form = document.getElementById("task_form");
+    let form = document.getElementById("task_form");
 
     if (form.style.display == "none") {
         form.style.display = "block";
@@ -128,7 +135,3 @@ function TaskFormToggle() {
         form.style.display = "none";
     };
 }
-
-createBlankPage();
-createTaskHolder();
-createForm();
