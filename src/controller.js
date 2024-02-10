@@ -1,9 +1,18 @@
-export function createTask() {
-    let task_title = document.getElementById("task_title").value;
+import { task_list } from './task.js';
 
+export function logTask() {
+    let task_title = task_list[0].title;
+  
     if (task_title == "") {
-        console.log("lol quit it");
+        logError();
+    } else {
+        console.log("The title is ", task_title);
     }
-
-    task_title.AddTask;
   }
+  
+  function logError() {
+    // let title_box = document.getElementById("task_title")
+    console.log("Please add a title to continue!");
+    // title_box.style.border = "2px solid red";
+  }
+  
