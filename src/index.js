@@ -1,5 +1,5 @@
 import "./style.css";
-import { Task } from "./task.js";
+import { task_list, createTask } from "./task.js";
 import { logTask } from "./controller.js";
 
 //create a page template!
@@ -74,20 +74,19 @@ createFormElement(
   "priority_number_input",
   "Priority:",
   "input",
-  "number",
+  "range",
 );
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("task_title").value;
-const desc = document.getElementById("desc").value;
-const due = document.getElementById("due").value;
-const priority = document.getElementById("priority").value;
-const priority_box = document.getElementById("priority");
-const priority_min = 1;
-const priority_max = 3;
-priority_box.setAttribute("min", priority_min);
-priority_box.setAttribute("max", priority_max);
+const title = document.getElementById("task_title");
+const desc = document.getElementById("desc");
+const due = document.getElementById("due");
+const priority = document.getElementById("priority");
+let priority_min = 1;
+let priority_max = 3;
+priority.setAttribute("min", priority_min);
+priority.setAttribute("max", priority_max);
 
 //create task form submit button
 let button = document.createElement("button");
@@ -100,7 +99,7 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  Task(title,desc,due,priority);
+  createTask(title.value,desc.value,due.value,priority.value);
   clearInputFields();
   TaskFormToggle();
   logTask;

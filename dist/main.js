@@ -608,26 +608,28 @@ function logTask() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Task: () => (/* binding */ Task),
+/* harmony export */   createTask: () => (/* binding */ createTask),
 /* harmony export */   task_list: () => (/* binding */ task_list)
 /* harmony export */ });
-const task_list = [];
+let task_list = [];
 
-function Task(title, desc, due, priority) {
+  function Task(title, desc, due, priority) {
     this.title = title;
     this.description = desc;
     this.due_date = due;
     this.priority = priority;
   }
 
-  //create it
-  let task = new Task();
+  function createTask(title, desc, due, priority) {
+      //create it
+      let task = new Task(title, desc, due, priority);
 
-  //push it
-  task_list.unshift(task);
-
-  //test it
-  console.log("this task list is ", task_list);
+      //push it
+      task_list.unshift(task);
+  
+      //test it
+      console.log("this task list is ", task_list);
+  }
 
 /***/ })
 
@@ -790,7 +792,7 @@ createFormElement(
   "priority_number_input",
   "Priority:",
   "input",
-  "number",
+  "range",
 );
 // optional elements for post-completion: notes, checklist
 
@@ -799,11 +801,10 @@ const title = document.getElementById("task_title");
 const desc = document.getElementById("desc");
 const due = document.getElementById("due");
 const priority = document.getElementById("priority");
-const priority_box = document.getElementById("priority");
-const priority_min = 1;
-const priority_max = 3;
-priority_box.setAttribute("min", priority_min);
-priority_box.setAttribute("max", priority_max);
+let priority_min = 1;
+let priority_max = 3;
+priority.setAttribute("min", priority_min);
+priority.setAttribute("max", priority_max);
 
 //create task form submit button
 let button = document.createElement("button");
@@ -816,7 +817,7 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.Task)(title.value,desc.value,due.value,priority.value);
+  (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.createTask)(title.value,desc.value,due.value,priority.value);
   clearInputFields();
   TaskFormToggle();
   _controller_js__WEBPACK_IMPORTED_MODULE_2__.logTask;
@@ -851,7 +852,7 @@ function displayTask() {
 
   container.innerHTML = "";
 
-  for (let i = 0; i < task_list.length; i++) {
+  for (let i = 0; i < _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list.length; i++) {
     let container = document.getElementById("container");
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
@@ -859,12 +860,12 @@ function displayTask() {
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", task_list[i]);
+    console.log("the items in the list are: ", _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i]);
     // console.log(task_list[i].title);
     // console.log(task_list[i].description);
     // console.log(task_list[i].priority);
     // console.log(task_list[i].due_date);
-    let shortcut = task_list[i];
+    let shortcut = _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i];
 
     console.log(shortcut);
 
