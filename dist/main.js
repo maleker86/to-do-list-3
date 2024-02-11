@@ -579,140 +579,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   logTask: () => (/* binding */ logTask)
 /* harmony export */ });
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ "./src/index.js");
+
+
 
 
 function logTask() {
-    let task_title = _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list[0].title;
-  
-    if (task_title == "") {
-        logError();
-    } else {
-        console.log("The title is ", task_title);
-    }
+  let task_title = _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list[0].title;
+
+  if (task_title == "") {
+    titleBlankError();
+    return;
+  } else {
+    let title_box = document.getElementById("task_title");
+    title_box.style.border = "none";
   }
-  
-  function logError() {
-    // let title_box = document.getElementById("task_title")
+
+  console.log("Success! this task list is ", _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
+  console.log("The task title is ", task_title);
+  (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.TaskFormToggle)();
+}
+
+function titleBlankError() {
+  let title_box = document.getElementById("task_title");
+  title_box.style.border = "2px solid red";
     console.log("Please add a title to continue!");
-    // title_box.style.border = "2px solid red";
-  }
-  
+    _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list.shift();
+    console.log("We removed your task attempt. this task list is now ",_task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
+}
 
 /***/ }),
 
-/***/ "./src/task.js":
-/*!*********************!*\
-  !*** ./src/task.js ***!
-  \*********************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createTask: () => (/* binding */ createTask),
-/* harmony export */   task_list: () => (/* binding */ task_list)
+/* harmony export */   TaskFormToggle: () => (/* binding */ TaskFormToggle)
 /* harmony export */ });
-let task_list = [];
-
-  function Task(title, desc, due, priority) {
-    this.title = title;
-    this.description = desc;
-    this.due_date = due;
-    this.priority = priority;
-  }
-
-  function createTask(title, desc, due, priority) {
-      //create it
-      let task = new Task(title, desc, due, priority);
-
-      //push it
-      task_list.unshift(task);
-  
-      //test it
-      console.log("this task list is ", task_list);
-  }
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nc = undefined;
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
 /* harmony import */ var _controller_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controller.js */ "./src/controller.js");
@@ -819,8 +726,7 @@ button.style.width = "flex-self";
 button.addEventListener("click", () => {
   (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.createTask)(title.value,desc.value,due.value,priority.value);
   clearInputFields();
-  TaskFormToggle();
-  _controller_js__WEBPACK_IMPORTED_MODULE_2__.logTask;
+  (0,_controller_js__WEBPACK_IMPORTED_MODULE_2__.logTask)();
 });
 
 function clearInputFields() {
@@ -848,11 +754,11 @@ function TaskFormToggle() {
 function displayTask() {
   // console.log("the due date is", task_list[0].due_date);
 
-  title_box.style.border = "none";
+  // title_box.style.border = "none";
 
   container.innerHTML = "";
 
-  for (let i = 0; i < _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list.length; i++) {
+  for (let i = 0; i < task_list.length; i++) {
     let container = document.getElementById("container");
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
@@ -860,12 +766,12 @@ function displayTask() {
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i]);
+    console.log("the items in the list are: ", task_list[i]);
     // console.log(task_list[i].title);
     // console.log(task_list[i].description);
     // console.log(task_list[i].priority);
     // console.log(task_list[i].due_date);
-    let shortcut = _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i];
+    let shortcut = task_list[i];
 
     console.log(shortcut);
 
@@ -913,8 +819,118 @@ function displayTask() {
   }
 }
 
-})();
 
+/***/ }),
+
+/***/ "./src/task.js":
+/*!*********************!*\
+  !*** ./src/task.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createTask: () => (/* binding */ createTask),
+/* harmony export */   task_list: () => (/* binding */ task_list)
+/* harmony export */ });
+let task_list = [];
+
+  function Task(title, desc, due, priority) {
+    this.title = title;
+    this.description = desc;
+    this.due_date = due;
+    this.priority = priority;
+  }
+
+  function createTask(title, desc, due, priority) {
+      //create it
+      let task = new Task(title, desc, due, priority);
+
+      //push it
+      task_list.unshift(task);
+  }
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

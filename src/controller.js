@@ -1,18 +1,27 @@
-import { task_list } from './task.js';
+import { task_list } from "./task.js";
+import { TaskFormToggle } from "./index.js";
+
 
 export function logTask() {
-    let task_title = task_list[0].title;
-  
-    if (task_title == "") {
-        logError();
-    } else {
-        console.log("The title is ", task_title);
-    }
+  let task_title = task_list[0].title;
+
+  if (task_title == "") {
+    titleBlankError();
+    return;
+  } else {
+    let title_box = document.getElementById("task_title");
+    title_box.style.border = "none";
   }
-  
-  function logError() {
-    // let title_box = document.getElementById("task_title")
+
+  console.log("Success! this task list is ", task_list);
+  console.log("The task title is ", task_title);
+  TaskFormToggle();
+}
+
+function titleBlankError() {
+  let title_box = document.getElementById("task_title");
+  title_box.style.border = "2px solid red";
     console.log("Please add a title to continue!");
-    // title_box.style.border = "2px solid red";
-  }
-  
+    task_list.shift();
+    console.log("We removed your task attempt. this task list is now ",task_list);
+}

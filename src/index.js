@@ -1,5 +1,5 @@
 import "./style.css";
-import { task_list, createTask } from "./task.js";
+import { createTask } from "./task.js";
 import { logTask } from "./controller.js";
 
 //create a page template!
@@ -101,8 +101,7 @@ button.style.width = "flex-self";
 button.addEventListener("click", () => {
   createTask(title.value,desc.value,due.value,priority.value);
   clearInputFields();
-  TaskFormToggle();
-  logTask;
+  logTask();
 });
 
 function clearInputFields() {
@@ -117,7 +116,7 @@ function clearInputFields() {
   due.value = "";
 }
 
-function TaskFormToggle() {
+export function TaskFormToggle() {
   let form = document.getElementById("task_form");
 
   if (form.style.display == "none") {
@@ -130,7 +129,7 @@ function TaskFormToggle() {
 function displayTask() {
   // console.log("the due date is", task_list[0].due_date);
 
-  title_box.style.border = "none";
+  // title_box.style.border = "none";
 
   container.innerHTML = "";
 

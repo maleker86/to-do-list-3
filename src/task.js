@@ -13,7 +13,4 @@ export let task_list = [];
 
       //push it
       task_list.unshift(task);
-  
-      //test it
-      console.log("this task list is ", task_list);
   }
