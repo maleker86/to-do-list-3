@@ -3,7 +3,7 @@ A local storage-enabled To Do project organizer built using Webpack framework &a
 
 <p>To Do:</p>
 <ul>
-<li>Make Task Button not Clickable when the form is open!!</li>
+    <li>Make Tasklist Show on Page USING SOLID PRINCIPLES</li>
 </ul>
 
 <p>Thanks to https://stackoverflow.com/questions/25436312/gitignore-not-working Ahmad for .gitignore help
