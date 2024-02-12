@@ -3,8 +3,9 @@ A local storage-enabled To Do project organizer built using Webpack framework &a
 
 <p>To Do:</p>
 <ul>
-    <li>~~Make Tasklist Show on Page USING SOLID PRINCIPLES~~</li>
+    ~~<li>Make Tasklist Show on Page USING SOLID PRINCIPLES</li>~~
     <li>Make Single Tasklist & Project Tasklist WORK TOGETHER...</li>
+    <li>Make DisplayTask use the array.[item] instead of whatever it is now</li>
 </ul>
 
 <p>Thanks to https://stackoverflow.com/questions/25436312/gitignore-not-working Ahmad for .gitignore help
