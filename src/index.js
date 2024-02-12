@@ -2,32 +2,33 @@ import "./style.css";
 import { createTask } from "./task.js";
 import { TaskManager, addTask, logTask, } from "./controller.js";
 
-//create a page template!
-const navigation = document.createElement("div");
+//declare default page!
+const navigation = document.getElementById("navigation");
 const main = document.createElement("div");
 const footer = document.createElement("div");
-const task_button = document.createElement("button");
 
-document.body.append(navigation);
-document.body.append(main);
-document.body.append(footer);
-navigation.setAttribute("id", "navigation");
-main.setAttribute("id", "main");
-footer.setAttribute("id", "footer");
+let task_button = document.createElement("button");
+
+// document.body.append(navigation);
+// document.body.append(main);
+// document.body.append(footer);
+// navigation.setAttribute("id", "navigation");
+// main.setAttribute("id", "main");
+// footer.setAttribute("id", "footer");
 
 navigation.append(task_button);
 task_button.addEventListener("click", TaskFormToggle);
 task_button.setAttribute("grid-area", "navigation");
 task_button.innerText = "Add Task";
 
-//make task & project holder on main section
-let task_container = document.createElement("div");
-let project_container = document.createElement("div");
+// //make task & project holder on main section
+// let task_container = document.createElement("div");
+// let project_container = document.createElement("div");
 
-task_container.setAttribute("id", "task_container");
-project_container.setAttribute("id", "project_container");
+// task_container.setAttribute("id", "task_container");
+// project_container.setAttribute("id", "project_container");
 
-main.append(task_container,project_container);
+// main.append(task_container,project_container);
 
 //create Form
 const form = document.createElement("form");
