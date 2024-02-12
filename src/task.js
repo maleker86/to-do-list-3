@@ -12,5 +12,8 @@ export let task_list = [];
       let task = new Task(title, desc, due, priority);
 
       //push it
-      task_list.unshift(task);
+      let push = task_list.unshift(task);
+      let hello = console.log(
+        "I have been hello'd!",
+      )
   }

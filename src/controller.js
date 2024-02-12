@@ -14,6 +14,7 @@ export function TaskManager() {
     title_box.style.border = "none";
 
   createTask.push;
+  createTask.hello;
 
   console.log("Success! this task list is ", task_list);
   console.log("The task title is ", task_title);
