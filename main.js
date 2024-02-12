@@ -576,7 +576,7 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   logTask: () => (/* binding */ logTask)
+/* harmony export */   TaskManager: () => (/* binding */ TaskManager)
 /* harmony export */ });
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
 /* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ "./src/index.js");
@@ -584,16 +584,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function logTask() {
+function TaskManager() {
   let task_title = _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list[0].title;
 
   if (task_title == "") {
     titleBlankError();
     return;
-  } else {
+  } 
+
     let title_box = document.getElementById("task_title");
     title_box.style.border = "none";
-  }
+
+  _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.push;
 
   console.log("Success! this task list is ", _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
   console.log("The task title is ", task_title);
@@ -605,7 +607,7 @@ function titleBlankError() {
   title_box.style.border = "2px solid red";
     console.log("Please add a title to continue!");
     _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list.shift();
-    console.log("We removed your task attempt. this task list is now ",_task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
+    console.log("We removed your last task attempt. this task list is now ",_task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
 }
 
 /***/ }),
@@ -725,8 +727,8 @@ button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
   (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.createTask)(title.value,desc.value,due.value,priority.value);
+  (0,_controller_js__WEBPACK_IMPORTED_MODULE_2__.TaskManager)();
   clearInputFields();
-  (0,_controller_js__WEBPACK_IMPORTED_MODULE_2__.logTask)();
 });
 
 function clearInputFields() {
