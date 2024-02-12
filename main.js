@@ -596,6 +596,7 @@ function TaskManager() {
     title_box.style.border = "none";
 
   _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.push;
+  _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.hello;
 
   console.log("Success! this task list is ", _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
   console.log("The task title is ", task_title);
@@ -849,7 +850,10 @@ let task_list = [];
       let task = new Task(title, desc, due, priority);
 
       //push it
-      task_list.unshift(task);
+      let push = task_list.unshift(task);
+      let hello = console.log(
+        "I have been hello'd!",
+      )
   }
 
 /***/ })
