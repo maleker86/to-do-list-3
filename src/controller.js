@@ -1,5 +1,6 @@
 import { createTask, task_list } from "./task.js";
 import { TaskFormToggle } from "./index.js";
+import { displaySingleTask } from './index.js';
 
 
 export function TaskManager() {
@@ -15,9 +16,7 @@ export function TaskManager() {
 
   createTask.push;
   createTask.hello;
-
-  console.log("Success! this task list is ", task_list);
-  console.log("The task title is ", task_title);
+  displaySingleTask("task_container");
   TaskFormToggle();
 }
 
@@ -28,3 +27,14 @@ function titleBlankError() {
     task_list.shift();
     console.log("We removed your last task attempt. this task list is now ",task_list);
 }
+
+// function displayTaskList() {
+//   console.log("Success! this task list is ", task_list);
+//   // console.log("The task title is ", task_title);
+
+//   for (let i = 0; i < task_list.length; i++) {
+//     let task = document.createElement("div");
+//     console.log(task_list[i]);
+
+//   }
+// }

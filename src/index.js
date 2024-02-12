@@ -1,5 +1,5 @@
 import "./style.css";
-import { createTask } from "./task.js";
+import { createTask, task_list } from "./task.js";
 import { TaskManager, addTask, logTask, } from "./controller.js";
 
 //declare default page!
@@ -75,7 +75,7 @@ createFormElement(
   "priority_number_input",
   "Priority:",
   "input",
-  "range",
+  "number",
 );
 // optional elements for post-completion: notes, checklist
 
@@ -127,15 +127,15 @@ export function TaskFormToggle() {
   }
 }
 
-function displayTask() {
+export function displaySingleTask(destinationID) {
   // console.log("the due date is", task_list[0].due_date);
-
   // title_box.style.border = "none";
+
+  let container = document.getElementById(destinationID);
 
   container.innerHTML = "";
 
   for (let i = 0; i < task_list.length; i++) {
-    let container = document.getElementById("container");
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
 
