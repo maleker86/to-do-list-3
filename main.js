@@ -584,6 +584,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function TaskManager() {
   let task_title = _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list[0].title;
 
@@ -597,9 +598,7 @@ function TaskManager() {
 
   _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.push;
   _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.hello;
-
-  console.log("Success! this task list is ", _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
-  console.log("The task title is ", task_title);
+  (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.displaySingleTask)("task_container");
   (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.TaskFormToggle)();
 }
 
@@ -611,6 +610,17 @@ function titleBlankError() {
     console.log("We removed your last task attempt. this task list is now ",_task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
 }
 
+// function displayTaskList() {
+//   console.log("Success! this task list is ", task_list);
+//   // console.log("The task title is ", task_title);
+
+//   for (let i = 0; i < task_list.length; i++) {
+//     let task = document.createElement("div");
+//     console.log(task_list[i]);
+
+//   }
+// }
+
 /***/ }),
 
 /***/ "./src/index.js":
@@ -621,7 +631,8 @@ function titleBlankError() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   TaskFormToggle: () => (/* binding */ TaskFormToggle)
+/* harmony export */   TaskFormToggle: () => (/* binding */ TaskFormToggle),
+/* harmony export */   displaySingleTask: () => (/* binding */ displaySingleTask)
 /* harmony export */ });
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
@@ -703,7 +714,7 @@ createFormElement(
   "priority_number_input",
   "Priority:",
   "input",
-  "range",
+  "number",
 );
 // optional elements for post-completion: notes, checklist
 
@@ -755,27 +766,27 @@ function TaskFormToggle() {
   }
 }
 
-function displayTask() {
+function displaySingleTask(destinationID) {
   // console.log("the due date is", task_list[0].due_date);
-
   // title_box.style.border = "none";
+
+  let container = document.getElementById(destinationID);
 
   container.innerHTML = "";
 
-  for (let i = 0; i < task_list.length; i++) {
-    let container = document.getElementById("container");
+  for (let i = 0; i < _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list.length; i++) {
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
 
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", task_list[i]);
+    console.log("the items in the list are: ", _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i]);
     // console.log(task_list[i].title);
     // console.log(task_list[i].description);
     // console.log(task_list[i].priority);
     // console.log(task_list[i].due_date);
-    let shortcut = task_list[i];
+    let shortcut = _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i];
 
     console.log(shortcut);
 
