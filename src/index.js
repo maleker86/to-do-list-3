@@ -1,6 +1,6 @@
 import "./style.css";
 import { createTask } from "./task.js";
-import { logTask } from "./controller.js";
+import { TaskManager, addTask, logTask, } from "./controller.js";
 
 //create a page template!
 const navigation = document.createElement("div");
@@ -100,8 +100,8 @@ button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
   createTask(title.value,desc.value,due.value,priority.value);
+  TaskManager();
   clearInputFields();
-  logTask();
 });
 
 function clearInputFields() {
