@@ -1,10 +1,20 @@
-import { createTask, task_list } from "./task.js";
+import { tasks, push, create, } from "./task.js";
 import { TaskFormToggle } from "./index.js";
 import { displaySingleTask } from './index.js';
-
+import { task_list } from './storage.js';
 
 export function TaskManager() {
-  let task_title = task_list[0].title;
+
+const title = document.getElementById("task_title");
+const desc = document.getElementById("desc");
+const due = document.getElementById("due");
+const priority = document.getElementById("priority");
+
+  tasks.create(title.value,desc.value,due.value,priority.value);
+  tasks.push();
+
+  console.log(task_list)
+  // let task_title = task_list[0].title;
 
   if (task_title == "") {
     titleBlankError();
@@ -14,8 +24,8 @@ export function TaskManager() {
     let title_box = document.getElementById("task_title");
     title_box.style.border = "none";
 
-  createTask.push;
-  createTask.hello;
+  // createTask.push;
+  // createTask.hello;
   displaySingleTask("task_container");
   TaskFormToggle();
 }

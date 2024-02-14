@@ -1,5 +1,8 @@
-export let task_list = [];
+import { task_list, hello } from "./storage.js";
 
+const tasks  = (function () {
+
+  //define it
   function Task(title, desc, due, priority) {
     this.title = title;
     this.description = desc;
@@ -7,13 +10,21 @@ export let task_list = [];
     this.priority = priority;
   }
 
-  export function createTask(title, desc, due, priority) {
-      //create it
-      let task = new Task(title, desc, due, priority);
-
-      //push it
-      let push = task_list.unshift(task);
-      let hello = console.log(
-        "I have been hello'd!",
-      )
+  const create = () => {
+    let task = new Task(title, desc, due, priority);
+    return task;
   }
+
+
+  const push = () => {
+    task_list.unshift(create);
+    hello();
+  }
+
+  return {
+    create,
+    push,
+  }
+});
+
+export default tasks;

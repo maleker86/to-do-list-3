@@ -1,5 +1,5 @@
 import "./style.css";
-import { createTask, task_list } from "./task.js";
+import { tasks } from "./task.js";
 import { TaskManager, addTask, logTask, } from "./controller.js";
 
 //declare default page!
@@ -80,9 +80,6 @@ createFormElement(
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("task_title");
-const desc = document.getElementById("desc");
-const due = document.getElementById("due");
 const priority = document.getElementById("priority");
 let priority_min = 1;
 let priority_max = 3;
@@ -100,7 +97,6 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  createTask(title.value,desc.value,due.value,priority.value);
   TaskManager();
   clearInputFields();
 });

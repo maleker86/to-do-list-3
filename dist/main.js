@@ -580,13 +580,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
 /* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ "./src/index.js");
+/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage.js */ "./src/storage.js");
 
 
 
 
 
 function TaskManager() {
-  let task_title = _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list[0].title;
+
+const title = document.getElementById("task_title");
+const desc = document.getElementById("desc");
+const due = document.getElementById("due");
+const priority = document.getElementById("priority");
+
+  _task_js__WEBPACK_IMPORTED_MODULE_0__.tasks.create(title.value,desc.value,due.value,priority.value);
+  _task_js__WEBPACK_IMPORTED_MODULE_0__.tasks.push();
+
+  console.log(_storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list)
+  // let task_title = task_list[0].title;
 
   if (task_title == "") {
     titleBlankError();
@@ -596,8 +607,8 @@ function TaskManager() {
     let title_box = document.getElementById("task_title");
     title_box.style.border = "none";
 
-  _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.push;
-  _task_js__WEBPACK_IMPORTED_MODULE_0__.createTask.hello;
+  // createTask.push;
+  // createTask.hello;
   (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.displaySingleTask)("task_container");
   (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.TaskFormToggle)();
 }
@@ -606,8 +617,8 @@ function titleBlankError() {
   let title_box = document.getElementById("task_title");
   title_box.style.border = "2px solid red";
     console.log("Please add a title to continue!");
-    _task_js__WEBPACK_IMPORTED_MODULE_0__.task_list.shift();
-    console.log("We removed your last task attempt. this task list is now ",_task_js__WEBPACK_IMPORTED_MODULE_0__.task_list);
+    _storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list.shift();
+    console.log("We removed your last task attempt. this task list is now ",_storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list);
 }
 
 // function displayTaskList() {
@@ -719,9 +730,6 @@ createFormElement(
 // optional elements for post-completion: notes, checklist
 
 //define any stragglers for the constructor above
-const title = document.getElementById("task_title");
-const desc = document.getElementById("desc");
-const due = document.getElementById("due");
 const priority = document.getElementById("priority");
 let priority_min = 1;
 let priority_max = 3;
@@ -739,7 +747,6 @@ form.appendChild(button);
 button.innerText = "Submit the info!";
 button.style.width = "flex-self";
 button.addEventListener("click", () => {
-  (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.createTask)(title.value,desc.value,due.value,priority.value);
   (0,_controller_js__WEBPACK_IMPORTED_MODULE_2__.TaskManager)();
   clearInputFields();
 });
@@ -774,19 +781,19 @@ function displaySingleTask(destinationID) {
 
   container.innerHTML = "";
 
-  for (let i = 0; i < _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list.length; i++) {
+  for (let i = 0; i < task_list.length; i++) {
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
 
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i]);
+    console.log("the items in the list are: ", task_list[i]);
     // console.log(task_list[i].title);
     // console.log(task_list[i].description);
     // console.log(task_list[i].priority);
     // console.log(task_list[i].due_date);
-    let shortcut = _task_js__WEBPACK_IMPORTED_MODULE_1__.task_list[i];
+    let shortcut = task_list[i];
 
     console.log(shortcut);
 
@@ -837,6 +844,22 @@ function displaySingleTask(destinationID) {
 
 /***/ }),
 
+/***/ "./src/storage.js":
+/*!************************!*\
+  !*** ./src/storage.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   hello: () => (/* binding */ hello),
+/* harmony export */   task_list: () => (/* binding */ task_list)
+/* harmony export */ });
+let task_list = [];
+const hello = () => { console.log("Storage says hi")}
+
+/***/ }),
+
 /***/ "./src/task.js":
 /*!*********************!*\
   !*** ./src/task.js ***!
@@ -845,11 +868,14 @@ function displaySingleTask(destinationID) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createTask: () => (/* binding */ createTask),
-/* harmony export */   task_list: () => (/* binding */ task_list)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-let task_list = [];
+/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage.js */ "./src/storage.js");
 
+
+const tasks  = (function () {
+
+  //define it
   function Task(title, desc, due, priority) {
     this.title = title;
     this.description = desc;
@@ -857,16 +883,24 @@ let task_list = [];
     this.priority = priority;
   }
 
-  function createTask(title, desc, due, priority) {
-      //create it
-      let task = new Task(title, desc, due, priority);
-
-      //push it
-      let push = task_list.unshift(task);
-      let hello = console.log(
-        "I have been hello'd!",
-      )
+  const create = () => {
+    let task = new Task(title, desc, due, priority);
+    return task;
   }
+
+
+  const push = () => {
+    _storage_js__WEBPACK_IMPORTED_MODULE_0__.task_list.unshift(create);
+    (0,_storage_js__WEBPACK_IMPORTED_MODULE_0__.hello)();
+  }
+
+  return {
+    create,
+    push,
+  }
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
 
 /***/ })
 
