@@ -900,6 +900,21 @@ const tasks  = (function () {
   }
 });
 
+console.log("The type of tasks is:")
+console.log(typeof tasks);
+
+//learning 
+function PrintHandler() {
+  let shout = () => console.log("I am shouting");
+  let whisper = () => console.log("I am whispering");
+  return {
+  shout,
+  whisper,
+};
+}
+PrintHandler().shout() 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
 
 /***/ })
