@@ -1,4 +1,6 @@
 # to-do-list
+03-20-2024: This is attempt 11 at creating this to do list project. I have duplicated a repo after my 2nd repo (attempts 6-10) would not revert due to webpack involvement. I hope to be free from this Sisyphys Rock soon. 
+
 A local storage-enabled To Do project organizer built using Webpack framework &amp; JSON.
 
 <p>To Do:</p>
