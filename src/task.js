@@ -29,14 +29,14 @@ const tasks  = (function () {
 console.log("The type of tasks is:", typeof tasks);
 
 //learning 
-function PrintHandler() {
-  let shout = () => console.log("I am shouting");
-  let whisper = () => console.log("I am whispering");
-  return {
-  shout,
-  whisper,
-};
-}
-PrintHandler().shout() 
+// function PrintHandler() {
+//   let shout = () => console.log("I am shouting");
+//   let whisper = () => console.log("I am whispering");
+//   return {
+//   shout,
+//   whisper,
+// };
+// }
+// PrintHandler().shout() 
 
 export default tasks;

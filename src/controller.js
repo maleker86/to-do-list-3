@@ -13,14 +13,14 @@ const due = document.getElementById("due").value;
 const priority = document.getElementById("priority").value;
 
 // tasks.create(title.value,desc.value,due.value,priority.value);
-console.log(title,desc,due,priority);
+// console.log(title,desc,due,priority);
   // tasks.push();
 
 
   let task = { title, desc, due, priority };
 
   task_list.push(task);
-  console.log(task_list);
+  // console.log(task_list);
 
   console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;

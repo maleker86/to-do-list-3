@@ -140,15 +140,16 @@ export function displaySingleTask(destinationID) {
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", list[i]);
+    console.log("the item we are looking at is: ", list[i]);
     // console.log(list[i].title);
     // console.log(list[i].desc);
     // console.log(list[i].due);
     // console.log(list[i].priority);
     let shortcut = list[i];
 
-    console.log("shortcut is",shortcut);
+    // console.log("shortcut is",shortcut);
     // console.log(shortcut.desc);
+    // console.log(list);
 
     if (
       shortcut.desc == shortcut.priority &&
