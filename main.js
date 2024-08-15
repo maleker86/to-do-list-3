@@ -596,14 +596,14 @@ const due = document.getElementById("due").value;
 const priority = document.getElementById("priority").value;
 
 // tasks.create(title.value,desc.value,due.value,priority.value);
-console.log(title,desc,due,priority);
+// console.log(title,desc,due,priority);
   // tasks.push();
 
 
   let task = { title, desc, due, priority };
 
   task_list.push(task);
-  console.log(task_list);
+  // console.log(task_list);
 
   console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;
@@ -801,15 +801,16 @@ function displaySingleTask(destinationID) {
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", list[i]);
+    console.log("the item we are looking at is: ", list[i]);
     // console.log(list[i].title);
     // console.log(list[i].desc);
     // console.log(list[i].due);
     // console.log(list[i].priority);
     let shortcut = list[i];
 
-    console.log("shortcut is",shortcut);
+    // console.log("shortcut is",shortcut);
     // console.log(shortcut.desc);
+    // console.log(list);
 
     if (
       shortcut.desc == shortcut.priority &&
@@ -916,15 +917,15 @@ const tasks  = (function () {
 console.log("The type of tasks is:", typeof tasks);
 
 //learning 
-function PrintHandler() {
-  let shout = () => console.log("I am shouting");
-  let whisper = () => console.log("I am whispering");
-  return {
-  shout,
-  whisper,
-};
-}
-PrintHandler().shout() 
+// function PrintHandler() {
+//   let shout = () => console.log("I am shouting");
+//   let whisper = () => console.log("I am whispering");
+//   return {
+//   shout,
+//   whisper,
+// };
+// }
+// PrintHandler().shout() 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
 
