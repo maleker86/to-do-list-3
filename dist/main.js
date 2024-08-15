@@ -576,27 +576,36 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   TaskManager: () => (/* binding */ TaskManager)
+/* harmony export */   TaskManager: () => (/* binding */ TaskManager),
+/* harmony export */   task_list: () => (/* binding */ task_list)
 /* harmony export */ });
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
 /* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ "./src/index.js");
-/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage.js */ "./src/storage.js");
 
 
 
+// import { task_list } from './storage.js';
 
+let task_list = [];
 
 function TaskManager() {
 
-const title = document.getElementById("task_title");
-const desc = document.getElementById("desc");
-const due = document.getElementById("due");
-const priority = document.getElementById("priority");
+const title = document.getElementById("task_title").value;
+const desc = document.getElementById("desc").value;
+const due = document.getElementById("due").value;
+const priority = document.getElementById("priority").value;
 
-  _task_js__WEBPACK_IMPORTED_MODULE_0__.tasks.create(title.value,desc.value,due.value,priority.value);
-  _task_js__WEBPACK_IMPORTED_MODULE_0__.tasks.push();
+// tasks.create(title.value,desc.value,due.value,priority.value);
+console.log(title,desc,due,priority);
+  // tasks.push();
 
-  console.log(_storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list)
+
+  let task = { title, desc, due, priority };
+
+  task_list.push(task);
+  console.log(task_list);
+
+  console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;
 
   if (task_title == "") {
@@ -617,20 +626,22 @@ function titleBlankError() {
   let title_box = document.getElementById("task_title");
   title_box.style.border = "2px solid red";
     console.log("Please add a title to continue!");
-    _storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list.shift();
-    console.log("We removed your last task attempt. this task list is now ",_storage_js__WEBPACK_IMPORTED_MODULE_2__.task_list);
+    task_list.shift();
+    console.log("We removed your last task attempt. this task list is now ",task_list);
 }
 
-// function displayTaskList() {
-//   console.log("Success! this task list is ", task_list);
-//   // console.log("The task title is ", task_title);
+function displayTaskList() {
+  console.log("Success! this task list is ", task_list);
+  // console.log("The task title is ", task_title);
 
-//   for (let i = 0; i < task_list.length; i++) {
-//     let task = document.createElement("div");
-//     console.log(task_list[i]);
+  for (let i = 0; i < task_list.length; i++) {
+    let task = document.createElement("div");
+    console.log(task_list[i]);
 
-//   }
-// }
+  }
+}
+
+
 
 /***/ }),
 
@@ -648,6 +659,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task.js */ "./src/task.js");
 /* harmony import */ var _controller_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controller.js */ "./src/controller.js");
+
 
 
 
@@ -718,8 +730,8 @@ function createFormElement(
 
 //create the task form elements!
 createFormElement("task_title", "title_input", "Title:", "input", "text");
-createFormElement("desc", "description_input", "Description:", "textarea");
-createFormElement("due", "due_date_input", "Due Date:", "input", "date");
+createFormElement("desc", "desc_input", "desc:", "textarea");
+createFormElement("due", "due_input", "Due Date:", "input", "date");
 createFormElement(
   "priority",
   "priority_number_input",
@@ -774,32 +786,34 @@ function TaskFormToggle() {
 }
 
 function displaySingleTask(destinationID) {
-  // console.log("the due date is", task_list[0].due_date);
+  // console.log("the due date is", task_list[0].due);
   // title_box.style.border = "none";
 
+  let list = _controller_js__WEBPACK_IMPORTED_MODULE_2__.task_list;
   let container = document.getElementById(destinationID);
 
   container.innerHTML = "";
 
-  for (let i = 0; i < task_list.length; i++) {
+  for (let i = 0; i < list.length; i++) {
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
 
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", task_list[i]);
-    // console.log(task_list[i].title);
-    // console.log(task_list[i].description);
-    // console.log(task_list[i].priority);
-    // console.log(task_list[i].due_date);
-    let shortcut = task_list[i];
+    console.log("the items in the list are: ", list[i]);
+    // console.log(list[i].title);
+    // console.log(list[i].desc);
+    // console.log(list[i].due);
+    // console.log(list[i].priority);
+    let shortcut = list[i];
 
-    console.log(shortcut);
+    console.log("shortcut is",shortcut);
+    // console.log(shortcut.desc);
 
     if (
-      shortcut.description == shortcut.priority &&
-      shortcut.priority == shortcut.due_date
+      shortcut.desc == shortcut.priority &&
+      shortcut.priority == shortcut.due
     ) {
       console.log("There is only a title");
       let h3 = document.createElement("h3");
@@ -817,9 +831,9 @@ function displaySingleTask(destinationID) {
       let h3 = document.createElement("h3");
 
       let non_titles = [
-        shortcut.description,
+        shortcut.desc,
         shortcut.priority,
-        shortcut.due_date,
+        shortcut.due,
       ];
 
       non_titles.forEach(function (non) {
@@ -883,11 +897,10 @@ const tasks  = (function () {
     this.priority = priority;
   }
 
-  const create = () => {
+  const create = (title,desc,due,priority) => {
     let task = new Task(title, desc, due, priority);
     return task;
   }
-
 
   const push = () => {
     _storage_js__WEBPACK_IMPORTED_MODULE_0__.task_list.unshift(create);
@@ -900,8 +913,7 @@ const tasks  = (function () {
   }
 });
 
-console.log("The type of tasks is:")
-console.log(typeof tasks);
+console.log("The type of tasks is:", typeof tasks);
 
 //learning 
 function PrintHandler() {
@@ -913,7 +925,6 @@ function PrintHandler() {
 };
 }
 PrintHandler().shout() 
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
 

@@ -1,5 +1,6 @@
 import "./style.css";
 import { tasks } from "./task.js";
+import { task_list } from "./controller.js";
 import { TaskManager, addTask, logTask, } from "./controller.js";
 
 //declare default page!
@@ -68,8 +69,8 @@ function createFormElement(
 
 //create the task form elements!
 createFormElement("task_title", "title_input", "Title:", "input", "text");
-createFormElement("desc", "description_input", "Description:", "textarea");
-createFormElement("due", "due_date_input", "Due Date:", "input", "date");
+createFormElement("desc", "desc_input", "desc:", "textarea");
+createFormElement("due", "due_input", "Due Date:", "input", "date");
 createFormElement(
   "priority",
   "priority_number_input",
@@ -124,32 +125,34 @@ export function TaskFormToggle() {
 }
 
 export function displaySingleTask(destinationID) {
-  // console.log("the due date is", task_list[0].due_date);
+  // console.log("the due date is", task_list[0].due);
   // title_box.style.border = "none";
 
+  let list = task_list;
   let container = document.getElementById(destinationID);
 
   container.innerHTML = "";
 
-  for (let i = 0; i < task_list.length; i++) {
+  for (let i = 0; i < list.length; i++) {
     let task_box = document.createElement("div");
     task_box.setAttribute("class", "task");
 
     console.log("We are printing object ", i + 1);
     // console.log("the item is ", task_list[i]);
 
-    console.log("the items in the list are: ", task_list[i]);
-    // console.log(task_list[i].title);
-    // console.log(task_list[i].description);
-    // console.log(task_list[i].priority);
-    // console.log(task_list[i].due_date);
-    let shortcut = task_list[i];
+    console.log("the items in the list are: ", list[i]);
+    // console.log(list[i].title);
+    // console.log(list[i].desc);
+    // console.log(list[i].due);
+    // console.log(list[i].priority);
+    let shortcut = list[i];
 
-    console.log(shortcut);
+    console.log("shortcut is",shortcut);
+    // console.log(shortcut.desc);
 
     if (
-      shortcut.description == shortcut.priority &&
-      shortcut.priority == shortcut.due_date
+      shortcut.desc == shortcut.priority &&
+      shortcut.priority == shortcut.due
     ) {
       console.log("There is only a title");
       let h3 = document.createElement("h3");
@@ -167,9 +170,9 @@ export function displaySingleTask(destinationID) {
       let h3 = document.createElement("h3");
 
       let non_titles = [
-        shortcut.description,
+        shortcut.desc,
         shortcut.priority,
-        shortcut.due_date,
+        shortcut.due,
       ];
 
       non_titles.forEach(function (non) {

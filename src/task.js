@@ -10,11 +10,10 @@ const tasks  = (function () {
     this.priority = priority;
   }
 
-  const create = () => {
+  const create = (title,desc,due,priority) => {
     let task = new Task(title, desc, due, priority);
     return task;
   }
-
 
   const push = () => {
     task_list.unshift(create);
@@ -27,8 +26,7 @@ const tasks  = (function () {
   }
 });
 
-console.log("The type of tasks is:")
-console.log(typeof tasks);
+console.log("The type of tasks is:", typeof tasks);
 
 //learning 
 function PrintHandler() {
@@ -40,6 +38,5 @@ function PrintHandler() {
 };
 }
 PrintHandler().shout() 
-
 
 export default tasks;

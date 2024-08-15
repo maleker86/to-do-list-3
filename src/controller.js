@@ -1,19 +1,28 @@
 import { tasks, push, create, } from "./task.js";
 import { TaskFormToggle } from "./index.js";
 import { displaySingleTask } from './index.js';
-import { task_list } from './storage.js';
+// import { task_list } from './storage.js';
+
+let task_list = [];
 
 export function TaskManager() {
 
-const title = document.getElementById("task_title");
-const desc = document.getElementById("desc");
-const due = document.getElementById("due");
-const priority = document.getElementById("priority");
+const title = document.getElementById("task_title").value;
+const desc = document.getElementById("desc").value;
+const due = document.getElementById("due").value;
+const priority = document.getElementById("priority").value;
 
-  tasks.create(title.value,desc.value,due.value,priority.value);
-  tasks.push();
+// tasks.create(title.value,desc.value,due.value,priority.value);
+console.log(title,desc,due,priority);
+  // tasks.push();
 
-  console.log(task_list)
+
+  let task = { title, desc, due, priority };
+
+  task_list.push(task);
+  console.log(task_list);
+
+  console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;
 
   if (task_title == "") {
@@ -38,13 +47,15 @@ function titleBlankError() {
     console.log("We removed your last task attempt. this task list is now ",task_list);
 }
 
-// function displayTaskList() {
-//   console.log("Success! this task list is ", task_list);
-//   // console.log("The task title is ", task_title);
+function displayTaskList() {
+  console.log("Success! this task list is ", task_list);
+  // console.log("The task title is ", task_title);
 
-//   for (let i = 0; i < task_list.length; i++) {
-//     let task = document.createElement("div");
-//     console.log(task_list[i]);
+  for (let i = 0; i < task_list.length; i++) {
+    let task = document.createElement("div");
+    console.log(task_list[i]);
 
-//   }
-// }
+  }
+}
+
+export { task_list };
