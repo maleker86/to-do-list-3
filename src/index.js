@@ -182,6 +182,7 @@ export function displaySingleTask(destinationID) {
         details.append(p);
       });
 
+      let task_button = document.createElement("button");
       let checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
 
@@ -191,6 +192,13 @@ export function displaySingleTask(destinationID) {
       summary.append(checkbox);
       summary.append(h3);
       h3.innerText = shortcut.title;
+
+      // add a (broken) button to add task inside of a project
+      task_box.append(task_button);
+    task_button.addEventListener("click", TaskFormToggle);
+  task_button.setAttribute("grid-area", "main");
+    task_button.innerText = "Add Task";
+
     }
   }
 }
