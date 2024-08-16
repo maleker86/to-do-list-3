@@ -25,7 +25,7 @@ const priority = document.getElementById("priority").value;
   console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;
 
-  if (task_title == "") {
+  if (title == "") {
     titleBlankError();
     return;
   } 

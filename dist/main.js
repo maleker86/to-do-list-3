@@ -608,7 +608,7 @@ const priority = document.getElementById("priority").value;
   console.log("the task list is:",task_list)
   // let task_title = task_list[0].title;
 
-  if (task_title == "") {
+  if (title == "") {
     titleBlankError();
     return;
   } 
@@ -814,7 +814,7 @@ function displaySingleTask(destinationID) {
 
     if (
       shortcut.desc == shortcut.priority &&
-      shortcut.priority == shortcut.due
+      shortcut.priority == shortcut.due 
     ) {
       console.log("There is only a title");
       let h3 = document.createElement("h3");

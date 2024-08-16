@@ -153,7 +153,7 @@ export function displaySingleTask(destinationID) {
 
     if (
       shortcut.desc == shortcut.priority &&
-      shortcut.priority == shortcut.due
+      shortcut.priority == shortcut.due 
     ) {
       console.log("There is only a title");
       let h3 = document.createElement("h3");
