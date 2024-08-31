@@ -36,6 +36,7 @@ const priority = document.getElementById("priority").value;
   // createTask.push;
   // createTask.hello;
   displaySingleTask("task_container");
+  // displayTaskList(this.parentElement);
   TaskFormToggle();
 }
 
@@ -47,14 +48,14 @@ function titleBlankError() {
     console.log("We removed your last task attempt. this task list is now ",task_list);
 }
 
-function displayTaskList() {
+function displayTaskList(parent) {
   console.log("Success! this task list is ", task_list);
   // console.log("The task title is ", task_title);
+  console.log("The parent is ", parent);
 
   for (let i = 0; i < task_list.length; i++) {
     let task = document.createElement("div");
     console.log(task_list[i]);
-
   }
 }
 

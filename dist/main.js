@@ -100,6 +100,7 @@ textarea {
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: baseline;
+    flex-direction: column;
     border: 2px solid blue;
 }
 
@@ -121,7 +122,7 @@ textarea {
     border: 1px solid black;
     padding: 10px;
     scrollbar-gutter: stable both-edges;
-}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,SAAS;IACT;;;;IAIA;IACA,2BAA2B;AAC/B;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,eAAe;IACf,aAAa;IACb,wBAAwB;AAC5B;;AAEA;IACI,iBAAiB;IACjB,wBAAwB;AAC5B;;AAEA;IACI,eAAe;IACf,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,oBAAoB;IACpB,qBAAqB;IACrB,aAAa;IACb,QAAQ;IACR,mCAAmC;IACnC,qBAAqB;IACrB,oBAAoB;IACpB,mBAAmB;IACnB,2BAA2B;IAC3B,aAAa;IACb,iBAAiB;IACjB,wBAAwB;AAC5B;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;IACf,oBAAoB;IACpB,iBAAiB;IACjB,SAAS;IACT,aAAa;IACb,aAAa;IACb,mBAAmB;IACnB,6BAA6B;IAC7B,qBAAqB;IACrB,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,oBAAoB;IACpB,iBAAiB;IACjB,SAAS;IACT,aAAa;IACb,aAAa;IACb,mBAAmB;IACnB,6BAA6B;IAC7B,qBAAqB;IACrB,wBAAwB;AAC5B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;IACvB,aAAa;IACb,mCAAmC;AACvC","sourcesContent":["body {\n    display: grid;\n    gap: 10px;\n    grid-template-areas: \n        \"navi main main\"\n        \"navi main main\"\n        \"navi footer footer\"\n    ;\n    background-color: lightblue;\n}\n\n#navigation {\n    grid-area: navi;\n    border: 2px solid green;\n}\n\n#main {\n    grid-area: main;\n    display: flex;\n    border: 2px solid orange;\n}\n\n#footer {\n    grid-area: footer;\n    border: 2px solid purple;\n}\n\nh1, h2, h3 {\n    display: inline;\n    margin: 0;\n    padding: 0;\n}\n\nbutton {\n    width: fit-content;\n}\n\ninput[type=\"radio\"] {\n    display: inline-block;\n}\n\nform {\n    grid-column-start: 2;\n    /* grid-area: main; */\n    display: none;\n    gap: 5px;\n    grid-template-columns: 1fr auto 1fr;\n    justify-items: center;\n    justify-self: center;\n    align-items: center;\n    background-color: lightgray;\n    padding: 10px;\n    z-index: 99999999;\n    /* position: absolute; */\n}\n\nform * {\n    grid-column-start: 2;\n}\n\ntextarea {\n    resize: vertical;\n    max-width: 48vw;\n}\n\n#project {\n    border: 2px solid red;\n}\n\n#task_container {\n    grid-area: main;\n    grid-column-start: 2;\n    grid-row-start: 1;\n    gap: 10px;\n    padding: 10px;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: space-evenly;\n    align-items: baseline;\n    border: 2px solid blue;\n}\n\n#project_container {\n    grid-area: main;\n    grid-column-start: 3;\n    grid-row-start: 1;\n    gap: 10px;\n    padding: 10px;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: space-evenly;\n    align-items: baseline;\n    border: 2px solid yellow;\n}\n\n.task {\n    overflow: scroll;\n    border: 1px solid black;\n    padding: 10px;\n    scrollbar-gutter: stable both-edges;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,SAAS;IACT;;;;IAIA;IACA,2BAA2B;AAC/B;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,eAAe;IACf,aAAa;IACb,wBAAwB;AAC5B;;AAEA;IACI,iBAAiB;IACjB,wBAAwB;AAC5B;;AAEA;IACI,eAAe;IACf,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,oBAAoB;IACpB,qBAAqB;IACrB,aAAa;IACb,QAAQ;IACR,mCAAmC;IACnC,qBAAqB;IACrB,oBAAoB;IACpB,mBAAmB;IACnB,2BAA2B;IAC3B,aAAa;IACb,iBAAiB;IACjB,wBAAwB;AAC5B;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;IACf,oBAAoB;IACpB,iBAAiB;IACjB,SAAS;IACT,aAAa;IACb,aAAa;IACb,mBAAmB;IACnB,6BAA6B;IAC7B,qBAAqB;IACrB,sBAAsB;IACtB,sBAAsB;AAC1B;;AAEA;IACI,eAAe;IACf,oBAAoB;IACpB,iBAAiB;IACjB,SAAS;IACT,aAAa;IACb,aAAa;IACb,mBAAmB;IACnB,6BAA6B;IAC7B,qBAAqB;IACrB,wBAAwB;AAC5B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;IACvB,aAAa;IACb,mCAAmC;AACvC","sourcesContent":["body {\n    display: grid;\n    gap: 10px;\n    grid-template-areas: \n        \"navi main main\"\n        \"navi main main\"\n        \"navi footer footer\"\n    ;\n    background-color: lightblue;\n}\n\n#navigation {\n    grid-area: navi;\n    border: 2px solid green;\n}\n\n#main {\n    grid-area: main;\n    display: flex;\n    border: 2px solid orange;\n}\n\n#footer {\n    grid-area: footer;\n    border: 2px solid purple;\n}\n\nh1, h2, h3 {\n    display: inline;\n    margin: 0;\n    padding: 0;\n}\n\nbutton {\n    width: fit-content;\n}\n\ninput[type=\"radio\"] {\n    display: inline-block;\n}\n\nform {\n    grid-column-start: 2;\n    /* grid-area: main; */\n    display: none;\n    gap: 5px;\n    grid-template-columns: 1fr auto 1fr;\n    justify-items: center;\n    justify-self: center;\n    align-items: center;\n    background-color: lightgray;\n    padding: 10px;\n    z-index: 99999999;\n    /* position: absolute; */\n}\n\nform * {\n    grid-column-start: 2;\n}\n\ntextarea {\n    resize: vertical;\n    max-width: 48vw;\n}\n\n#project {\n    border: 2px solid red;\n}\n\n#task_container {\n    grid-area: main;\n    grid-column-start: 2;\n    grid-row-start: 1;\n    gap: 10px;\n    padding: 10px;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: space-evenly;\n    align-items: baseline;\n    flex-direction: column;\n    border: 2px solid blue;\n}\n\n#project_container {\n    grid-area: main;\n    grid-column-start: 3;\n    grid-row-start: 1;\n    gap: 10px;\n    padding: 10px;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: space-evenly;\n    align-items: baseline;\n    border: 2px solid yellow;\n}\n\n.task {\n    overflow: scroll;\n    border: 1px solid black;\n    padding: 10px;\n    scrollbar-gutter: stable both-edges;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -619,6 +620,7 @@ const priority = document.getElementById("priority").value;
   // createTask.push;
   // createTask.hello;
   (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.displaySingleTask)("task_container");
+  // displayTaskList(this.parentElement);
   (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.TaskFormToggle)();
 }
 
@@ -630,14 +632,14 @@ function titleBlankError() {
     console.log("We removed your last task attempt. this task list is now ",task_list);
 }
 
-function displayTaskList() {
+function displayTaskList(parent) {
   console.log("Success! this task list is ", task_list);
   // console.log("The task title is ", task_title);
+  console.log("The parent is ", parent);
 
   for (let i = 0; i < task_list.length; i++) {
     let task = document.createElement("div");
     console.log(task_list[i]);
-
   }
 }
 
